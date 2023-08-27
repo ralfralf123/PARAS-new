@@ -1,11 +1,137 @@
-import React from "react";
+import React, {useRef, useEffect} from "react";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import bg from "../assets/contact-25.jpg";
 import Button from "../components/Button";
 import el1 from "../assets/contact-09.png";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+gsap.registerPlugin(ScrollTrigger);
 const Contact = () => {
+  const el1Ref = useRef(null);
+  
+  useEffect(() => {
+    const el1 = el1Ref.current;
+    const imagesDown = gsap.utils.toArray(".imgDown");
+    const imagesSlideRight = gsap.utils.toArray(".imgSlideRight");
+    const imagesUp = gsap.utils.toArray(".imgUp");
+    
+    gsap.set(imagesUp, {
+      opacity: 0,
+      y: 100,
+    });
+
+    gsap.set(imagesDown, {
+      opacity: 0,
+      y: -100
+    })
+
+    gsap.set(imagesSlideRight, {
+      opacity: 0,
+      x: -400,
+    });
+
+    imagesSlideRight.forEach((imageRight) => {
+      ScrollTrigger.create({
+        trigger: imageRight,
+        start: "top bottom",
+        end: "bottom top",
+        onEnter: () => {
+          gsap.to(imageRight, {
+            duration: 2,
+            opacity: 1,
+            x: 0,
+            ease: "expo",
+          });
+        },
+        onEnterBack: () => {
+          gsap.to(imageRight, {
+            duration: 2,
+            opacity: 1,
+            x: 0,
+            ease: "expo",
+          });
+        },
+        onLeave: () => {
+          gsap.set(imageRight, { x: -400 });
+        },
+      });
+    });
+
+    imagesUp.forEach((imgUp) => {
+      ScrollTrigger.create({
+        trigger: imgUp,
+        start: "top bottom",
+        end: "bottom top",
+        onEnter: () => {
+          gsap.to(imgUp, {
+            opacity: 1,
+            duration: 2,
+            delay: 0.2,
+            y: 0,
+            ease: "expo",
+          });
+        },
+        onEnterBack: () => {
+          gsap.to(imgUp, {
+            opacity: 1,
+            duration: 2,
+            y: 0,
+            delay: 0.2,
+            ease: "expo",
+          });
+        },
+        onLeave: () => {
+          gsap.set(imgUp, { opacity: 0, y: 100 });
+        },
+      });
+    });
+
+    imagesDown.forEach((imgUp) => {
+      ScrollTrigger.create({
+        trigger: imgUp,
+        start: "top bottom",
+        end: "bottom top",
+        onEnter: () => {
+          gsap.to(imgUp, {
+            opacity: 1,
+            duration: 2,
+            delay: 0.2,
+            y: 0,
+            ease: "expo",
+          });
+        },
+        onEnterBack: () => {
+          gsap.to(imgUp, {
+            opacity: 1,
+            duration: 2,
+            y: 0,
+            delay: 0.2,
+            ease: "expo",
+          });
+        },
+        onLeave: () => {
+          gsap.set(imgUp, { opacity: 0, y: 100 });
+        },
+      });
+    });
+    gsap.set(el1, {
+      opacity: 0,
+      y: 100
+    })
+
+    gsap.to(el1, {
+      opacity: 1,
+      duration: 1.25,
+      delay: 0.1,
+      y: 0,
+      ease: "expo",
+      stagger: 0.1
+
+    })
+  },[]);
+  
   return (
     <>
       <section className="w-full h-screen flex flex-col">
@@ -15,7 +141,7 @@ const Contact = () => {
           alt="bg"
           className="absolute inset-0 object-cover h-screen w-full"
         />
-        <div className="absolute inset-0 flex flex-col w-full h-full items-center justify-center pt-80">
+        <div className="absolute inset-0 flex flex-col w-full h-full items-center justify-center pt-80" ref={el1Ref}>
           <h1 className="text-white text-center text-5xl lg:text-7xl font-bold font-tnr mb-4">
             We'd love to hear from you!
           </h1>
@@ -23,11 +149,11 @@ const Contact = () => {
       </section>
       <section className="w-full h-screen flex flex-col">
         <div className="inset-0 flex flex-col w-full h-full justify-center items-center">
-          <h1 className="text-blue-900 text-2xl md:text-3xl lg:text-4xl font-bold font-tnr mb-4 text-center">
+          <h1 className="imgDown text-blue-900 text-2xl md:text-3xl lg:text-4xl font-bold font-tnr mb-4 text-center">
             Questions? Comments? and Suggestion? <br />
             Please complete the form below <br /> and click submit
           </h1>
-          <form className="flex flex-col w-full md:w-5/6 lg:w-3/4 items-center justify-center lg:px-32 translate-y-4">
+          <form className="imgUp flex flex-col w-full md:w-5/6 lg:w-3/4 items-center justify-center lg:px-32 translate-y-4">
             <input
               type="text"
               name="name"
@@ -52,7 +178,7 @@ const Contact = () => {
       </section>
       <section className="w-full h-screen flex flex-col">
         <div className="inset-0 flex flex-col w-full h-full justify-center items-center">
-          <img src={el1} alt="el1" className="lg:w-9/12" />
+          <img src={el1} alt="el1" className="imgSlideRight lg:w-9/12" />
         </div>
       </section>
       <Footer />

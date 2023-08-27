@@ -29,7 +29,7 @@ const Footer = () => {
               placeholder="Email"
             />
           </div>
-          <div className="w-full md:w-1/2 flex items-center justify-center h-full">
+          <div className="w-full md:w-1/2 flex items-center lg:justify-start justify-center h-full">
             <textarea
               type="text"
               name="message"
@@ -63,8 +63,18 @@ const Footer = () => {
               src={fb}
               alt="fb"
               className="w-10 md:w-20 lg:mx-2 cursor-pointer"
+              onClick={() =>
+                window.open("https://www.facebook.com/ParasAlterStation/", "_blank")
+              }
             />
-            <img src={ig} alt="ig" className="w-10 md:w-20 cursor-pointer" />
+            <img
+              src={ig}
+              alt="ig"
+              className="w-10 md:w-20 cursor-pointer"
+              onClick={() =>
+                window.open("https://www.instagram.com/ParasAlterStation/", "_blank")
+              }
+            />
           </div>
           <h2 className="font-cambria text-white text-xs lg:text-xl text-right">
             Terms and Conditions

@@ -18,35 +18,35 @@ const NavBar = () => {
         className="hidden md:flex lg:hidden md:w-80 my-4 md:px-8"
       />
       <ul className="flex w-full items-center justify-between md:justify-evenly my-4  lg:my-8">
-        <li className="text-blue-800 font-tnr text-lg cursor-pointer transition duration-500 ease-in-out hover:text-black hidden md:flex">
+        <li className="text-blue-800 font-tnr text-lg cursor-pointer hidden md:flex">
           <NavLink
             exact
             to="/"
             onClick={() => window.scrollTo(0, 0)}
             className={({ isActive }) =>
-              isActive ? "text-black font-semibold" : "text-blue-800"
+              isActive ? "text-black font-semibold" : "text-blue-800 hover:text-black transition ease-in-out duration-300"
             }
           >
             Home
           </NavLink>
         </li>
-        <li className="text-blue-800 font-tnr text-lg cursor-pointer transition duration-500 ease-in-out hover:text-black hidden md:flex">
+        <li className="text-blue-800 font-tnr text-lg cursor-pointer hidden md:flex">
           <NavLink
             to="/about"
             onClick={() => window.scrollTo(0, 0)}
             className={({ isActive }) =>
-              isActive ? "text-black font-semibold" : "text-blue-800"
+              isActive ? "text-black font-semibold" : "text-blue-800 hover:text-black transition ease-in-out duration-300"
             }
           >
             About Us
           </NavLink>
         </li>
-        <li className="text-blue-800 font-tnr text-lg cursor-pointer transition duration-500 ease-in-out hover:text-black hidden md:flex">
+        <li className="text-blue-800 font-tnr text-lg cursor-pointer hidden md:flex">
           <NavLink
             to="/careers"
             onClick={() => window.scrollTo(0, 0)}
             className={({ isActive }) =>
-              isActive ? "text-black font-semibold" : "text-blue-800"
+              isActive ? "text-black font-semibold" : "text-blue-800 hover:text-black transition ease-in-out duration-300"
             }
           >
             Careers & Franchise
@@ -55,35 +55,35 @@ const NavBar = () => {
         <li className="md:hidden lg:flex">
           <img src={logo} alt="logo" className="w-52 md:w-72 md:px-8" />
         </li>
-        <li className="text-blue-800 font-tnr text-lg cursor-pointer transition duration-500 ease-in-out hover:text-black hidden md:flex">
+        <li className="text-blue-800 font-tnr text-lg cursor-pointer hidden md:flex">
           <NavLink
             to="/services"
             onClick={() => window.scrollTo(0, 0)}
             className={({ isActive }) =>
-              isActive ? "text-black font-semibold" : "text-blue-800"
+              isActive ? "text-black font-semibold" : "text-blue-800 hover:text-black transition ease-in-out duration-300"
             }
           >
             Services
           </NavLink>
         </li>
-        <li className="text-blue-800 font-tnr text-lg cursor-pointer transition duration-500 ease-in-out hover:text-black hidden md:flex">
+        <li className="text-blue-800 font-tnr text-lg cursor-pointer hidden md:flex">
           {" "}
           <NavLink
             to="/branches"
             onClick={() => window.scrollTo(0, 0)}
             className={({ isActive }) =>
-              isActive ? "text-black font-semibold" : "text-blue-800"
+              isActive ? "text-black font-semibold" : "text-blue-800 hover:text-black transition ease-in-out duration-300"
             }
           >
             Branches
           </NavLink>
         </li>
-        <li className="text-blue-800 font-tnr text-lg cursor-pointer transition duration-500 ease-in-out hover:text-black hidden md:flex">
+        <li className="text-blue-800 font-tnr text-lg cursor-pointer hidden md:flex">
           <NavLink
             to="/contact"
             onClick={() => window.scrollTo(0, 0)}
             className={({ isActive }) =>
-              isActive ? "text-black font-semibold" : "text-blue-800"
+              isActive ? "text-black font-semibold" : "text-blue-800 hover:text-black transition ease-in-out duration-300"
             }
           >
             Contact Us
