@@ -153,7 +153,7 @@ const About = () => {
           gsap.to(body, {
             opacity: 1,
             duration: 2,
-            delay: 0.1,
+            delay: 0.2,
             y: 0,
             ease: 'expo',
           });
@@ -162,7 +162,7 @@ const About = () => {
           gsap.to(body, {
             opacity: 1,
             duration: 2,
-            delay: 0.1,
+            delay: 0.2,
             y: 0,
             ease: 'expo',
           });
@@ -180,8 +180,8 @@ const About = () => {
 
     gsap.to([el1, el2], {
       opacity: 1,
-      duration: 1.25,
-      delay: 0.1,
+      duration: 2,
+      delay: 0.5,
       y: 0,
       ease: "expo",
       stagger: 0.1
@@ -212,7 +212,7 @@ const About = () => {
             How it started...
           </h1>
           <div className="md:w-9/12 lg:w-7/12 h-auto" ref={el2Ref}>
-            <p className="font-cambria text-xl lg:text-2xl w-full h-52 md:h-36 transition ease-in-out duration-500 text-justify" >
+            <p className="font-cambria text-md lg:text-2xl w-full h-52 md:h-36 transition ease-in-out duration-500 text-justify" >
               {desc[currentIndex]}
             </p>
             <div className="flex justify-center m-1">
@@ -239,10 +239,10 @@ const About = () => {
             <img src={el1} alt="el1" className="imgSideLeft md:w-12/12" />
           </div>
           <div className="md:w-1/2 flex flex-col items-end">
-            <h1 className="header text-5xl lg:text-6xl font-cambria font-bold text-blue-900 my-4">
+            <h1 className="header text-4xl lg:text-6xl font-cambria font-bold text-blue-900 my-4">
               Mission
             </h1>
-            <p className="bodyText font-cambria text-xl lg:text-2xl my-4 w-11/12 text-right">
+            <p className="bodyText font-cambria text-md lg:text-2xl my-4 w-11/12 text-right">
               To provide our customers excellent service and quality of
               workmanship in order to meet, exceed and satisty their needs and
               expectations.
@@ -256,10 +256,10 @@ const About = () => {
             <img src={el3} alt="el3" className="imgSideRight w-80 md:w-10/12" />
           </div>
           <div className="md:w-1/2 flex flex-col items-start">
-            <h1 className="header text-5xl lg:text-6xl font-cambria font-bold text-blue-900 my-4">
+            <h1 className="header text-4xl lg:text-6xl font-cambria font-bold text-blue-900 my-4">
               Vision
             </h1>
-            <p className="bodyText font-cambria text-xl lg:text-2xl my-4 w-11/12 text-left md:text-justify">
+            <p className="bodyText font-cambria text-md lg:text-2xl my-4 w-11/12 text-left md:text-justify">
               To be the leading service provider in the garments repair and
               alteration industry by helping our customers protect their most
               expensive wardrobe, and be able to use it overtime. <br /> <br />{" "}
@@ -277,10 +277,10 @@ const About = () => {
             <img src={el2} alt="el2" className="imgSideRight w-96 md:w-12/12" />
           </div>
           <div className="md:w-1/2 flex flex-col items-start">
-            <h1 className="header text-5xl lg:text-6xl font-cambria font-bold text-blue-900 my-4">
+            <h1 className="header text-4xl lg:text-6xl font-cambria font-bold text-blue-900 my-4">
               Core Value
             </h1>
-            <p className="bodyText font-cambria text-xl lg:text-2xl my-4 w-11/12 text-justify">
+            <p className="bodyText font-cambria text-md lg:text-2xl my-4 w-11/12 text-justify">
               We will ensure that our customers are happy and satisfied, through
               quality workmanship, fast service, and friendly, polite staff.
             </p>
@@ -296,10 +296,10 @@ const About = () => {
             <img src={el4} alt="el4" className="imgSideLeft w-80 md:w-10/12" />
           </div>
           <div className="md:w-1/2 flex flex-col items-end">
-            <h1 className="header text-5xl lg:text-6xl font-cambria font-bold text-blue-900 my-4">
+            <h1 className="header text-4xl lg:text-6xl font-cambria font-bold text-blue-900 my-4">
               Principle
             </h1>
-            <p className="bodyText font-cambria text-xl lg:text-2xl my-4 w-11/12 text-right">
+            <p className="bodyText font-cambria text-md lg:text-2xl my-4 w-11/12 text-right">
               To introduce God through our actions and be able to see us who we
               are in Christ.
             </p>

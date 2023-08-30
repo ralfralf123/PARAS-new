@@ -15,7 +15,7 @@ const Footer = () => {
       </h1>
       <form className="flex flex-col w-full items-center justify-center lg:px-32 translate-y-4">
         <div className="flex flex-col md:flex-row w-full items-center">
-          <div className="w-full md:w-1/2 flex flex-col items-center lg:items-end">
+          <div className="font-cambria w-full md:w-1/2 flex flex-col items-center lg:items-end">
             <input
               type="text"
               name="name"
@@ -33,7 +33,7 @@ const Footer = () => {
             <textarea
               type="text"
               name="message"
-              className="h-28 p-2 md:p-2 m-2 bg-transparent w-11/12 md:w-9/12 border-2 rounded-xl border-white text-white"
+              className="font-cambria h-28 p-2 md:p-2 m-2 bg-transparent w-11/12 md:w-9/12 border-2 rounded-xl border-white text-white"
               placeholder="Message"
             />
           </div>

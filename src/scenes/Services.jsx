@@ -198,8 +198,8 @@ const Services = () => {
 
     gsap.to([el1, el2], {
       opacity: 1,
-      duration: 1.25,
-      delay: 0.1,
+      duration: 2,
+      delay: 0.5,
       y: 0,
       ease: "expo",
       stagger: 0.1
@@ -217,10 +217,10 @@ const Services = () => {
           className="absolute inset-0 object-cover w-full h-screen"
         />
         <div className="absolute bottom-6 inset-0 flex flex-col w-full h-full px-12 items-end justify-end lg:px-24 pb-36">
-          <h1 className="text-blue-800 text-5xl lg:text-7xl font-bold font-tnr mb-8" ref={el1Ref}>
+          <h1 className="text-blue-800 text-4xl lg:text-7xl font-bold font-tnr mb-8" ref={el1Ref}>
             Our Services
           </h1>
-          <p className="font-cambria text-lg lg:text-2xl lg:w-6/12 text-justify pl-8" ref={el2Ref}>
+          <p className="font-cambria text-md lg:text-2xl lg:w-6/12 text-justify pl-8" ref={el2Ref}>
             We alter, repair, mend, re-style, re-size all men's and lady's
             fashion clothing as in back to original. (Dresses, skirts, slacks,
             denim pants, trousers, shorts, suits, jackets, shirts, blouses,
@@ -236,7 +236,7 @@ const Services = () => {
         />
         <div className="absolute w-full h-screen md:px-12 lg:px-24 flex lg:items-start pt-12">
           <div className="w-full lg:w-1/4 flex flex-col items-center md:items-start">
-            <h1 className="imgUp text-5xl lg:text-7xl text-center md:text-left font-tnr font-bold text-blue-900 mb-4">
+            <h1 className="imgUp text-4xl lg:text-7xl text-center md:text-left font-tnr font-bold text-blue-900 mb-4">
               Basic <br />
               Alteration
             </h1>
@@ -302,7 +302,7 @@ const Services = () => {
             />
           </div>
           <div className="w-full lg:w-1/4 flex flex-col items-center md:items-end justify-start">
-            <h1 className="imgUp text-5xl lg:text-7xl font-tnr font-bold text-blue-900 mb-4 text-center md:text-right">
+            <h1 className="imgUp text-4xl lg:text-7xl font-tnr font-bold text-blue-900 mb-4 text-center md:text-right">
               General <br />
               Alteration
             </h1>

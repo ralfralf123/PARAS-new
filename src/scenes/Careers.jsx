@@ -160,8 +160,8 @@ const Careers = () => {
 
     gsap.to(el1, {
       opacity: 1,
-      duration: 1.25,
-      delay: 0.1,
+      duration: 2,
+      delay: 0.5,
       y: 0,
       ease: "expo",
       stagger: 0.1
@@ -179,7 +179,7 @@ const Careers = () => {
           className="absolute inset-0 object-cover w-full h-screen"
         />
         <div className="absolute inset-0 flex flex-col w-full h-full lg:items-start items-end justify-center px-6 pt-64">
-          <h1 className="text-white lg:text-blue-900 text-5xl lg:text-7xl font-bold font-tnr xl:ml-24 mb-4" ref={el1Ref}>
+          <h1 className="text-white lg:text-blue-900 text-4xl lg:text-7xl font-bold font-tnr xl:ml-24 mb-4" ref={el1Ref}>
             Careers at <br /> Paras Alter <br /> Station
           </h1>
         </div>
@@ -193,12 +193,12 @@ const Careers = () => {
         <div className="absolute w-full h-full px-4 xl:px-24 flex flex-col md:flex-row justify-center items-end pb-20">
           <div className="flex md:hidden flex-col items-center justify-center mt-20">
             <img src={el3} alt="el3" className="w-72 imgSlideLeft" />
-            <h1 className="imgSlideRight text-6xl lg:text-7xl font-cambria font-bold text-blue-900 my-4">
+            <h1 className="imgSlideRight text-4xl lg:text-7xl font-cambria font-bold text-blue-900 my-4">
               Qualification
             </h1>
           </div>
           <div className="md:w-7/12">
-            <p className="imgUp font-cambria text-xl lg:text-2xl text-justify my-4">
+            <p className="imgUp font-cambria text-md lg:text-2xl text-justify my-4">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
               enim ad minim veniam, quis nostrud exercitation ullamco laboris
@@ -210,7 +210,7 @@ const Careers = () => {
           </div>
           <div className="hidden w-5/12 md:flex flex-col items-end">
             <img src={el3} alt="el3" className="imgSlideLeft w-6/12" />
-            <h1 className="imgUp text-5xl lg:text-7xl font-cambria font-bold text-blue-900 my-4">
+            <h1 className="imgUp text-4xl lg:text-7xl font-cambria font-bold text-blue-900 my-4">
               Qualification
             </h1>
           </div>
@@ -226,7 +226,7 @@ const Careers = () => {
               Be Part of our <br />
               Growing Partners!
             </h1>
-            <p className="imgUp font-cambria text-xl lg:text-2xl my-4 text-justify md:text-right">
+            <p className="imgUp font-cambria text-md lg:text-2xl my-4 text-justify md:text-right">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
               enim ad minim veniam, quis nostrud exercitation ullamco laboris

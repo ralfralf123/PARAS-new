@@ -59,11 +59,11 @@ const Branches = () => {
         },
       });
     });
-    
+
     gsap.to([el1, el2], {
       opacity: 1,
-      duration: 1.25,
-      delay: 0.2,
+      duration: 2,
+      delay: 0.5,
       y: 0,
       ease: "expo",
       stagger: 0.1
@@ -81,7 +81,7 @@ const Branches = () => {
           className="absolute inset-0 object-cover h-screen w-full"
         />
         <div className="absolute inset-0 flex flex-col w-full h-full items-center justify-center px-12 pt-64">
-          <h1 className="text-white text-2xl lg:text-5xl font-bold font-tnr mb-4 text-center md:w-5/6" ref={el1Ref}>
+          <h1 className="text-white text-2xl lg:text-4xl font-bold font-tnr mb-4 text-center md:w-5/6" ref={el1Ref}>
             Welcome to the Paras Alter Station Branch Directory where you can
             view maps, and check available stores and services at different
             malls nationwide!

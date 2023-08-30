@@ -153,7 +153,7 @@ const Homepage = () => {
             duration: 2,
             y: 0,
             ease: "expo",
-            stagger: 0.4
+            stagger: 0.4,
           });
         },
         onEnterBack: () => {
@@ -201,8 +201,8 @@ const Homepage = () => {
 
     gsap.to([el1, el2], {
       opacity: 1,
-      duration: 1.25,
-      delay: 0.1,
+      duration: 2,
+      delay: 0.5,
       y: 0,
       ease: "expo",
       stagger: 0.1,
@@ -220,13 +220,13 @@ const Homepage = () => {
         />
         <div className="absolute inset-0 flex flex-col w-full h-full items-center justify-center pt-64">
           <h1
-            className="opacity-0 text-white text-6xl md:text-7xl font-bold font-tnr mb-4 text-center"
+            className="opacity-0 text-white text-4xl md:text-7xl font-bold font-tnr mb-4 text-center"
             ref={el1Ref}
           >
             We measure to satisfy.
           </h1>
           <p
-            className="text-white text-justify md:text-center text-xl md:text-2xl font-thin font-tnr mx-8 lg:mx-72"
+            className="text-white text-center md:text-center text-md md:text-2xl font-thin font-tnr mx-10 lg:mx-72"
             ref={el2Ref}
           >
             We are adaptable and flexible to changes to fit to the needs and
@@ -237,7 +237,7 @@ const Homepage = () => {
         </div>
       </section>
       <section className="w-full h-screen flex flex-col items-center">
-        <h1 className="my-12 text-5xl header font-tnr font-bold text-blue-900 text-center">
+        <h1 className="my-12 text-4xl md:text-5xl header font-tnr font-bold text-blue-900 text-center">
           Our <br />
           Services
         </h1>
@@ -270,14 +270,18 @@ const Homepage = () => {
             <img src={el3} alt="el3" className="w-12/12" />
           </div>
           <div className="md:w-1/2 flex flex-col items-center md:items-start">
-            <h1 className="text-5xl header md:text-6xl font-cambria font-bold text-blue-900 my-4 text-center md:text-left">
+            <h1 className="text-4xl header md:text-6xl font-cambria font-bold text-blue-900 my-4 text-center md:text-left">
               Why choose us?
             </h1>
-            <p className="fadeIn font-cambria text-xl md:text-2xl text-justify my-4">
+            <p className="fadeIn font-cambria text-md md:text-2xl text-justify my-4">
               PARAS ALTER STATION (PAS) maintains its high standard in the
               garments repair and alteration services industry.
             </p>
-            <Link to="/about" onClick={() => window.scrollTo(0, 0)} className="imgSlideRight">
+            <Link
+              to="/about"
+              onClick={() => window.scrollTo(0, 0)}
+              className="imgSlideRight"
+            >
               <Button text="Read More" />
             </Link>
           </div>
@@ -287,7 +291,7 @@ const Homepage = () => {
         </div>
       </section>
       <section className="w-full h-screen flex flex-col items-center justify-center">
-        <h1 className="my-12 text-5xl header font-tnr font-bold text-blue-900 text-center">
+        <h1 className="my-12 text-4xl md:text-5xl header font-tnr font-bold text-blue-900 text-center">
           Now Sewing
         </h1>
         <div className="imgUp flex justify-center md:w-3/4 lg:w-1/3 relative">
@@ -335,12 +339,16 @@ const Homepage = () => {
             <img src={pin3} alt="pin3" />
           </Link>
         </div>
-        <Link to="/branches" onClick={() => window.scrollTo(0, 0)} className="imgUp">
+        <Link
+          to="/branches"
+          onClick={() => window.scrollTo(0, 0)}
+          className="imgUp"
+        >
           <Button text="View All" />
         </Link>
       </section>
       <section className="w-full h-screen flex flex-col items-center justify-center">
-        <h1 className="my-12 text-5xl header font-tnr font-bold text-blue-900 text-center">
+        <h1 className="my-12 text-4xl md:text-5xl header font-tnr font-bold text-blue-900 text-center">
           Discount Cards
         </h1>
         <div className="flex flex-col md:flex-row mx-16 lg:mx-32 mb-12 h-1/2 md:h-auto">
@@ -352,10 +360,10 @@ const Homepage = () => {
           </div>
         </div>
         <div className="fadeIn flex flex-col items-center">
-          <h2 className="font-cambria text-2xl md:text-3xl font-bold ">
+          <h2 className="font-cambria text-xl md:text-3xl font-bold ">
             AVAILABLE NATIONWIDE
           </h2>
-          <h3 className="font-cambria text-2xl md:text-3xl">
+          <h3 className="font-cambria text-xl md:text-3xl">
             For Only P200.00
           </h3>
           <Button text="Apply Now" />

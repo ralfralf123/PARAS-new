@@ -123,8 +123,8 @@ const Contact = () => {
 
     gsap.to(el1, {
       opacity: 1,
-      duration: 1.25,
-      delay: 0.1,
+      duration: 2,
+      delay: 0.5,
       y: 0,
       ease: "expo",
       stagger: 0.1
@@ -142,34 +142,34 @@ const Contact = () => {
           className="absolute inset-0 object-cover h-screen w-full"
         />
         <div className="absolute inset-0 flex flex-col w-full h-full items-center justify-center pt-80" ref={el1Ref}>
-          <h1 className="text-white text-center text-5xl lg:text-7xl font-bold font-tnr mb-4">
+          <h1 className="text-white text-center text-4xl lg:text-7xl font-bold font-tnr mb-4 px-8 md:px-0">
             We'd love to hear from you!
           </h1>
         </div>
       </section>
       <section className="w-full h-screen flex flex-col">
-        <div className="inset-0 flex flex-col w-full h-full justify-center items-center">
+        <div className="inset-0 flex flex-col w-full h-full justify-center items-center px-8 md:px-0">
           <h1 className="imgDown text-blue-900 text-2xl md:text-3xl lg:text-4xl font-bold font-tnr mb-4 text-center">
             Questions? Comments? and Suggestion? <br />
             Please complete the form below <br /> and click submit
           </h1>
-          <form className="imgUp flex flex-col w-full md:w-5/6 lg:w-3/4 items-center justify-center lg:px-32 translate-y-4">
+          <form className="imgUp font-cambria flex flex-col w-full md:w-5/6 lg:w-3/4 items-center justify-center lg:px-32 translate-y-4">
             <input
               type="text"
               name="name"
-              className="p-2 md:p-3 m-2 bg-transparent w-11/12 md:w-9/12 border-2 rounded-xl border-blue-900 text-white"
+              className=" p-2 md:p-3 m-2 bg-transparent w-11/12 md:w-9/12 border-2 rounded-xl border-blue-900"
               placeholder="Name"
             />
             <input
               type="email"
               name="email"
-              className="p-2 md:p-3 m-2 bg-transparent w-11/12 md:w-9/12 border-2 rounded-xl border-blue-900 text-white"
+              className="p-2 md:p-3 m-2 bg-transparent w-11/12 md:w-9/12 border-2 rounded-xl border-blue-900"
               placeholder="Email"
             />
             <textarea
               type="text"
               name="message"
-              className="h-28 p-2 md:p-2 m-2 bg-transparent w-11/12 md:w-9/12 border-2 rounded-xl border-blue-900 text-white"
+              className="h-28 p-2 md:p-2 m-2 bg-transparent w-11/12 md:w-9/12 border-2 rounded-xl border-blue-900"
               placeholder="Message"
             />
             <Button text="Submit" />
