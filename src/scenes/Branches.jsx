@@ -1,4 +1,4 @@
-import React, {useRef, useEffect} from "react";
+import React, { useRef, useEffect, useState } from "react";
 import NavBar from "../components/NavBar";
 import bg from "../assets/BRANCHES-32 (1).png";
 import card1 from "../assets/BRANCHES-24.png";
@@ -18,6 +18,12 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 const Branches = () => {
   gsap.registerPlugin(ScrollTrigger);
 
+  const [visibleColumn, setVisibleColumn] = useState("metro-manila");
+
+  const toggleColumn = (columnId) => {
+    setVisibleColumn(columnId);
+  };
+
   const el1Ref = useRef(null);
   const el2Ref = useRef(null);
 
@@ -28,8 +34,8 @@ const Branches = () => {
 
     gsap.set([el1, el2, imagesUp], {
       opacity: 0,
-      y: 100
-    })
+      y: 100,
+    });
 
     imagesUp.forEach((imgUp) => {
       ScrollTrigger.create({
@@ -66,10 +72,9 @@ const Branches = () => {
       delay: 0.5,
       y: 0,
       ease: "expo",
-      stagger: 0.1
-
-    })
-  },[]);
+      stagger: 0.1,
+    });
+  }, []);
 
   return (
     <>
@@ -81,7 +86,10 @@ const Branches = () => {
           className="absolute inset-0 object-cover h-screen w-full"
         />
         <div className="absolute inset-0 flex flex-col w-full h-full items-center justify-center px-12 pt-64">
-          <h1 className="text-white text-2xl lg:text-4xl font-bold font-tnr mb-4 text-center md:w-5/6" ref={el1Ref}>
+          <h1
+            className="text-white text-2xl lg:text-4xl font-bold font-tnr mb-4 text-center md:w-5/6"
+            ref={el1Ref}
+          >
             Welcome to the Paras Alter Station Branch Directory where you can
             view maps, and check available stores and services at different
             malls nationwide!
@@ -92,53 +100,92 @@ const Branches = () => {
               className="w-full h-full rounded-3xl bg-gray-300 opacity-60 pl-2 "
               id="search-form"
             ></input>
-            <IoIosSearch size={30} className="text-blue-900 absolute right-[3%] top-[20%] cursor-pointer"/>
-          </div>         
+            <IoIosSearch
+              size={30}
+              className="text-blue-900 absolute right-[3%] top-[20%] cursor-pointer"
+            />
+          </div>
         </div>
       </section>
-      <section className="w-full h-auto flex flex-col bg-slate-300 justify-center items-center">
-        <div className="imgUp grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 grid-rows-2 lg:m-24">
+      <section className="w-full py-12 h-auto flex flex-col bg-dimPink justify-center items-center">
+        <div className="imgUp w-full pb-16 grid grid-cols-5 px-4 md:px-8 lg:px-16 xl:px-24 gap-4">
+          <div
+            className={`text-center py-4 rounded-3xl font-cambria font-bold text-[0.5rem] md:text-lg shadow-lg transition ease-in-out duration-3000 cursor-pointer hover:bg-blue-900 hover:text-white ${
+              visibleColumn === "metro-manila" ? " bg-blue-900 text-white" : "bg-white"
+            }`}
+            onClick={() => toggleColumn("metro-manila")}
+          >
+            Metro Manila
+          </div>
+          <div
+            className={`text-center py-4 rounded-3xl font-cambria font-bold text-[0.5rem] md:text-lg shadow-lg transition ease-in-out duration-3000 cursor-pointer hover:bg-blue-900 hover:text-white ${
+              visibleColumn === "north-luzon" ? " bg-blue-900 text-white" : "bg-white"
+            }`}
+            onClick={() => toggleColumn("north-luzon")}
+          >
+            North Luzon
+          </div>
+          <div
+            className={`text-center py-4 rounded-3xl font-cambria font-bold text-[0.5rem] md:text-lg shadow-lg transition ease-in-out duration-3000 cursor-pointer hover:bg-blue-900 hover:text-white ${
+              visibleColumn === "south-luzon" ? " bg-blue-900 text-white" : "bg-white"
+            }`}
+            onClick={() => toggleColumn("south-luzon")}
+          >
+            South Luzon
+          </div>
+          <div
+            className={`text-center py-4 rounded-3xl font-cambria font-bold text-[0.5rem] md:text-lg shadow-lg transition ease-in-out duration-3000 cursor-pointer hover:bg-blue-900 hover:text-white ${
+              visibleColumn === "visayas" ? " bg-blue-900 text-white" : "bg-white"
+            }`}
+          >
+            Visayas
+          </div>
+          <div
+            className={`text-center py-4 rounded-3xl font-cambria font-bold text-[0.5rem] md:text-lg shadow-lg transition ease-in-out duration-3000 cursor-pointer hover:bg-blue-900 hover:text-white ${
+              visibleColumn === "mindanao" ? " bg-blue-900 text-white" : "bg-white"
+            }`}
+            onClick={() => toggleColumn("mindanao")}
+          >
+            Mindanao
+          </div>
+        </div>
+        <div
+          className={`imgUp grid grid-cols-2 md:grid-cols-3 grid-rows-2 px-4 md:px-8 lg:px-16 xl:px-24 ${
+            visibleColumn === "metro-manila" ? "" : "hidden"
+          }`}
+          id="metro-manila"
+        >
           <img
             src={card1}
             alt="card1"
-            className="p-6 transition ease-in-out duration-300 hover:scale-110"
+            className="rounded-[24%] shadow-xl scale-75 transition ease-in-out duration-300 hover:scale-[80%]"
           />
           <img
             src={card2}
             alt="card2"
-            className="p-6 transition ease-in-out duration-300 hover:scale-110"
+            className="rounded-[24%] shadow-xl scale-75  transition ease-in-out duration-300 hover:scale-[80%]"
           />
-          <Link to="/details" onClick={() => window.scrollTo(0, 0)}> 
+          <Link to="/details" onClick={() => window.scrollTo(0, 0)}>
             <img
               src={card3}
               alt="card3"
-              className="p-6 transition ease-in-out duration-300 hover:scale-110"
+              className="rounded-[24%] shadow-xl scale-75  transition ease-in-out duration-300 hover:scale-[80%]"
             />
           </Link>
           <img
-            src={card4}
-            alt="card4"
-            className="p-6 transition ease-in-out duration-300 hover:scale-110"
-          />
-          <img
             src={card5}
             alt="card5"
-            className="p-6 transition ease-in-out duration-300 hover:scale-110"
+            className="rounded-[24%] shadow-xl scale-75  transition ease-in-out duration-300 hover:scale-[80%]"
           />
           <img
             src={card6}
             alt="card6"
-            className="p-6 transition ease-in-out duration-300 hover:scale-110"
+            className="rounded-[24%] shadow-xl scale-75  transition ease-in-out duration-300 hover:scale-[80%]"
           />
           <img
             src={card7}
             alt="card7"
-            className="p-6 transition ease-in-out duration-300 hover:scale-110"
-          />
-          <img
-            src={card8}
-            alt="card8"
-            className="p-6 transition ease-in-out duration-300 hover:scale-110"
+            className="rounded-[24%] shadow-xl scale-75  transition ease-in-out duration-300 hover:scale-[80%]"
           />
         </div>
       </section>

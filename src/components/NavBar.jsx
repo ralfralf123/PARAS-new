@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import logo from "../assets/WEB LOGO.png";
+import logo from "../assets/PAS Logo - Black Text Blue R.png";
 import { NavLink } from "react-router-dom";
 import { IoIosMenu, IoIosClose } from "react-icons/io";
 
@@ -11,13 +11,13 @@ const NavBar = () => {
   };
 
   return (
-    <nav className="flex flex-col fixed gap-2 md:px-0 px-4 h-auto items-center justify-center bg-white w-full z-[999]">
+    <nav className="flex md:flex-col md:items-center lg:flex-row fixed px-4 lg:px-12 xl:px-24 py-2 h-auto bg-white w-full z-[999]">
       <img
         src={logo}
         alt="logo"
-        className="hidden md:flex lg:hidden md:w-80 my-4 md:px-8"
+        className="flex w-48 my-2"
       />
-      <ul className="flex w-full items-center justify-between md:justify-evenly my-4  lg:my-8">
+      <ul className="flex w-full items-center justify-end md:justify-between lg:ml-12 xl:ml-36 my-4  lg:my-8">
         <li className="text-blue-800 font-tnr text-lg cursor-pointer hidden md:flex">
           <NavLink
             exact
@@ -52,9 +52,6 @@ const NavBar = () => {
             Careers & Franchise
           </NavLink>
         </li>
-        <li className="md:hidden lg:flex">
-          <img src={logo} alt="logo" className="w-52 md:w-72 md:px-8" />
-        </li>
         <li className="text-blue-800 font-tnr text-lg cursor-pointer hidden md:flex">
           <NavLink
             to="/services"
@@ -75,7 +72,18 @@ const NavBar = () => {
               isActive ? "text-black font-semibold" : "text-blue-800 hover:text-black transition ease-in-out duration-300"
             }
           >
-            Branches
+            Branch Locator
+          </NavLink>
+        </li>
+        <li className="text-blue-800 font-tnr text-lg cursor-pointer hidden md:flex">
+          <NavLink
+            to="/news"
+            onClick={() => window.scrollTo(0, 0)}
+            className={({ isActive }) =>
+              isActive ? "text-black font-semibold" : "text-blue-800 hover:text-black transition ease-in-out duration-300"
+            }
+          >
+            News & Events
           </NavLink>
         </li>
         <li className="text-blue-800 font-tnr text-lg cursor-pointer hidden md:flex">
@@ -159,7 +167,19 @@ const NavBar = () => {
               isActive ? "text-black font-semibold" : "text-blue-800"
             }
           >
-            Branches
+            Branch Locator
+          </NavLink>
+        </li>
+        <li className="text-blue-800 font-tnr border-b border-gray-300 text-lg p-2 cursor-pointer transition duration-500 ease-in-out hover:text-black">
+          {" "}
+          <NavLink
+            to="/news"
+            onClick={() => window.scrollTo(0, 0)}
+            className={({ isActive }) =>
+              isActive ? "text-black font-semibold" : "text-blue-800"
+            }
+          >
+            News & Events
           </NavLink>
         </li>
         <li className="text-blue-800 font-tnr text-lg cursor-pointer transition p-2 duration-500 ease-in-out hover:text-black">

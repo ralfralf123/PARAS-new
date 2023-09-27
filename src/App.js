@@ -7,6 +7,10 @@ import Branches from './scenes/Branches'
 import Careers from './scenes/Careers';
 import Contact from './scenes/Contact';
 import Details from './scenes/Details';
+import News from './scenes/News';
+import Labels from './scenes/Labels';
+import Tips from './scenes/Tips';
+import Denim from './scenes/Denim';
 
 const App = () => {
   return (
@@ -20,6 +24,10 @@ const App = () => {
       <Route path="/careers"  element={<Careers/>}/>
       <Route path="/contact"  element={<Contact/>}/>
       <Route path="/details"  element={<Details/>}/>
+      <Route path="/news"  element={<News/>}/>
+      <Route path="/labels"  element={<Labels/>}/>
+      <Route path="/tips"  element={<Tips/>}/>
+      <Route path="/denim"  element={<Denim/>}/>
       </Routes>
       </div>
     </>

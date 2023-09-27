@@ -1,23 +1,39 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, Component } from "react";
 import bg from "../assets/ELEMENTS-28.png";
+import bg2 from "../assets/bg2.jpg";
+import bg3 from "../assets/bg3.jpg";
 import NavBar from "../components/NavBar";
 import Button from "../components/Button";
-import el1 from "../assets/ELEMENTS-07.png";
-import el2 from "../assets/ELEMENTS-08.png";
-import el3 from "../assets/ELEMENTS-09.png";
-import el4 from "../assets/ELEMENTS-21.png";
-import pin1 from "../assets/ELEMENTS-26.png";
-import pin2 from "../assets/ELEMENTS-27.png";
-import pin3 from "../assets/ELEMENTS-22.png";
-import pin4 from "../assets/ELEMENTS-23.png";
-import pin5 from "../assets/ELEMENTS-24.png";
-import pin6 from "../assets/ELEMENTS-25.png";
-import card1 from "../assets/ELEMENTS-14.png";
-import card2 from "../assets/ELEMENTS-15.png";
+import phMap from "../assets/CAREERS_FRANCHISE-10.png";
+import el3 from "../assets/HOME-33(1).png";
+import card1 from "../assets/os-27.png";
+import card2 from "../assets/os-35.png";
+import card3 from "../assets/os-36.jpg";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import news1 from "../assets/bata.jpg";
+import news2 from "../assets/v.jpg";
+import news3 from "../assets/back2.jpg";
+import news4 from "../assets/d2.jpg";
+import prevIcon from "../assets/prev-icon.png";
+import nextIcon from "../assets/next-icon.png";
+import testimonials from "../assets/PARAS-WEB-DESIGN_REVISED-33.png";
+import profile from "../assets/PARAS-WEB-DESIGN_REVISED-34 (1).png";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/effect-coverflow";
+import "swiper/css/pagination";
+import "swiper/css/autoplay";
+import "swiper/css/navigation";
+import {
+  EffectCoverflow,
+  Pagination,
+  Autoplay,
+  Navigation,
+} from "swiper/modules";
+import "../index.css";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -211,22 +227,49 @@ const Homepage = () => {
 
   return (
     <>
-      <section className="w-full h-screen flex flex-col">
+      <section className="relative w-full h-screen flex flex-col">
         <NavBar />
-        <img
-          src={bg}
-          alt="bg"
-          className="absolute inset-0 object-cover h-screen"
-        />
-        <div className="absolute inset-0 flex flex-col w-full h-full items-center justify-center pt-64">
+        <Swiper
+          modules={[Pagination, Autoplay]}
+          pagination={{
+            el: ".swiper-pagination",
+            clickable: true,
+          }}
+          autoplay={{ delay: 3000 }}
+          className="bgSlider absolute inset-0 object-cover w-full h-screen"
+        >
+          <SwiperSlide>
+            <img
+              src={bg}
+              alt="bg"
+              className="absolute inset-0 object-cover h-screen"
+            />
+          </SwiperSlide>
+          <SwiperSlide>
+            <img
+              src={bg2}
+              alt="bg2"
+              className="absolute inset-0 object-cover w-full h-screen"
+            />
+          </SwiperSlide>
+          <SwiperSlide>
+            <img
+              src={bg3}
+              alt="bg3"
+              className="absolute inset-0 object-cover w-full h-screen"
+            />
+          </SwiperSlide>
+          <div class="swiper-pagination"></div>
+        </Swiper>
+        <div className=" absolute inset-0 flex flex-col w-full h-full items-center justify-center pt-64">
           <h1
-            className="opacity-0 text-white text-4xl md:text-7xl font-bold font-tnr mb-4 text-center"
+            className="z-50 opacity-0 text-white text-4xl md:text-7xl font-bold font-tnr mb-4 text-center"
             ref={el1Ref}
           >
             We measure to satisfy.
           </h1>
           <p
-            className="text-white text-center md:text-center text-md md:text-2xl font-thin font-tnr mx-10 lg:mx-72"
+            className=" z-50 text-white text-center md:text-center text-md md:text-2xl font-thin font-tnr mx-10 xl:mx-72"
             ref={el2Ref}
           >
             We are adaptable and flexible to changes to fit to the needs and
@@ -236,46 +279,67 @@ const Homepage = () => {
           </p>
         </div>
       </section>
-      <section className="w-full h-screen flex flex-col items-center">
-        <h1 className="my-12 text-4xl md:text-5xl header font-tnr font-bold text-blue-900 text-center">
-          Our <br />
-          Services
+      <section className="relative w-full h-auto xl:h-screen flex flex-col items-center">
+        <h1 className="z-20 my-12 text-4xl md:text-5xl header font-tnr font-bold text-blue-900 text-center">
+          Our Services
         </h1>
-        <div className=" flex flex-col md:flex-row lg:mx-64 items-center gap-4 justify-center">
+        <div className="imgUp z-20 flex flex-col md:flex-row px-6 items-center justify-center">
           <Link
             to="/services"
             onClick={() => window.scrollTo(620, 620)}
-            className="w-1/2 flex flex-col items-center hover:scale-110 transition ease-in-out duration-500 "
+            className="w-1/3 flex flex-col items-center hover:scale-110 transition ease-in-out duration-500 "
           >
-            <img src={el1} alt="el1" className="imgSlideRight w-6/6 md:w-5/6" />
-            <h1 className="fadeIn font-cambria text-2xl md:text-3xl text-center">
+            <img src={card1} alt="el1" className="w-full md:w-5/6" />
+            <h1 className="-translate-y-6 bg-white py-2 px-6 font-cambria text-xl md:text-3xl text-center">
               Basic Alteration
             </h1>
           </Link>
           <Link
             to="/services"
             onClick={() => window.scrollTo(1340, 1340)}
-            className="w-1/2 flex flex-col items-center hover:scale-110 transition ease-in-out duration-500 "
+            className="w-1/3 flex flex-col items-center hover:scale-110 transition ease-in-out duration-500 "
           >
-            <img src={el2} alt="el2" className="imgSlideLeft w-6/6 md:w-5/6" />
-            <h1 className="fadeIn font-cambria text-2xl md:text-3xl text-center">
+            <img src={card2} alt="el2" className="md:w-5/6" />
+            <h1 className="-translate-y-6 bg-white font-cambria py-2 px-6 text-xl md:text-3xl text-center">
               General Alteration
             </h1>
           </Link>
+          <Link
+            to="/services"
+            onClick={() => window.scrollTo(1340, 1340)}
+            className="w-1/3 flex flex-col items-center hover:scale-110 transition ease-in-out duration-500 "
+          >
+            <img src={card3} alt="el2" className="md:w-5/6" />
+            <h1 className="-translate-y-6 bg-white font-cambria py-2 px-6 text-xl md:text-3xl text-center">
+              Made to Order
+            </h1>
+          </Link>
         </div>
+        <div className="z-20 relative xl:mt-12">
+          <Link to="/services" onClick={() => window.scrollTo(0, 0)}>
+            <button className="rounded-lg bg-white my-4 px-6 py-1 text-blue-900">
+              View all
+            </button>
+          </Link>
+        </div>
+        <div className="z-10 absolute bottom-0 w-full h-1/2 bg-blue-900"></div>
       </section>
-      <section className="w-full h-screen ">
-        <div className="h-full lg:px-24 px-8 flex flex-col md:flex-row items-center justify-center">
-          <div className="md:hidden">
-            <img src={el3} alt="el3" className="w-12/12" />
+      <section className="w-full h-auto py-24 bg-dimPink">
+        <div className="h-full px-4 md:px-8 lg:px-16 xl:px-24 flex flex-col md:flex-row items-center justify-center">
+          <div className="md:hidden flex justify-center">
+            <img src={el3} alt="el3" className="w-10/12" />
           </div>
           <div className="md:w-1/2 flex flex-col items-center md:items-start">
-            <h1 className="text-4xl header md:text-6xl font-cambria font-bold text-blue-900 my-4 text-center md:text-left">
+            <h1 className="text-4xl header lg:text-6xl font-cambria font-bold text-blue-900 my-4 text-center md:text-left">
               Why choose us?
             </h1>
-            <p className="fadeIn font-cambria text-md md:text-2xl text-justify my-4">
+            <p className="fadeIn font-cambria text-md lg:text-2xl text-justify my-4">
               PARAS ALTER STATION (PAS) maintains its high standard in the
-              garments repair and alteration services industry.
+              garments repair and alteration services industry. Before we
+              release to customers our altered garments, we make sure that it
+              has passed stringet quality control before they leave our shop. If
+              they are happy, they will be able to spread the good news through
+              word of mouth.
             </p>
             <Link
               to="/about"
@@ -285,88 +349,215 @@ const Homepage = () => {
               <Button text="Read More" />
             </Link>
           </div>
-          <div className="imgSlideLeft hidden md:flex w-1/2">
-            <img src={el3} alt="el3" className="w-12/12" />
+          <div className="imgSlideLeft hidden md:flex w-1/2 justify-end">
+            <img src={el3} alt="el3" className="w-10/12" />
           </div>
         </div>
       </section>
-      <section className="w-full h-screen flex flex-col items-center justify-center">
-        <h1 className="my-12 text-4xl md:text-5xl header font-tnr font-bold text-blue-900 text-center">
-          Now Sewing
+      <section className="w-full h-auto mt-12 mb-24 flex flex-col items-center justify-center">
+        <h1 className="mb-12 text-4xl md:text-5xl header font-tnr font-bold text-blue-900 text-center">
+          Latest News
         </h1>
-        <div className="imgUp flex justify-center md:w-3/4 lg:w-1/3 relative">
-          <img src={el4} alt="el4" className="w-full  my-8" />
-          <Link
-            to="/details"
-            onClick={() => window.scrollTo(0, 0)}
-            className="absolute hover:scale-110 transition ease-in-out duration-500 z-50 w-20 right-[25%] "
-          >
-            <img src={pin1} alt="pin1" />
-          </Link>
-          <Link
-            to="/details"
-            onClick={() => window.scrollTo(0, 0)}
-            className="absolute hover:scale-110 transition ease-in-out duration-500 z-50 w-20 top-[13%] right-[18%]"
-          >
-            <img src={pin2} alt="pin2" />
-          </Link>
-          <Link
-            to="/details"
-            onClick={() => window.scrollTo(0, 0)}
-            className="absolute hover:scale-110 transition ease-in-out duration-500 z-50 w-20 top-[13%] right-[35%]"
-          >
-            <img src={pin6} alt="pin6" />
-          </Link>
-          <Link
-            to="/details"
-            onClick={() => window.scrollTo(0, 0)}
-            className="absolute hover:scale-110 transition ease-in-out duration-500 z-50 w-20 top-[24%] right-[32%]"
-          >
-            <img src={pin5} alt="pin5" />
-          </Link>
-          <Link
-            to="/details"
-            onClick={() => window.scrollTo(0, 0)}
-            className="absolute hover:scale-110 transition ease-in-out duration-500 z-50 w-20 top-[32%] right-[42%]"
-          >
-            <img src={pin4} alt="pin4" />
-          </Link>
-          <Link
-            to="/details"
-            onClick={() => window.scrollTo(0, 0)}
-            className="absolute hover:scale-110 transition ease-in-out duration-500 z-50 w-20 bottom-[12%] right-[46%]"
-          >
-            <img src={pin3} alt="pin3" />
-          </Link>
+        <div className="imgUp flex flex-col justify-center w-3/4 relative">
+          <div className="w-full h-full">
+            <Swiper
+              modules={[EffectCoverflow, Pagination, Navigation]}
+              effect={"coverflow"}
+              spaceBetween={60}
+              grabCursor={true}
+              centeredSlides={true}
+              loop={true}
+              slidesPerView={"2"}
+              coverflowEffect={{
+                rotate: 0,
+                stretch: 50,
+                depth: 200,
+                modifier: 1,
+                slideShadows: true,
+              }}
+              pagination={{
+                el: ".swiper-pagination", // Use a CSS selector to specify the pagination container
+                clickable: true, // Allow clicking on pagination bullets to navigate
+              }}
+              navigation={{
+                //navigation(arrows)
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+              }}
+              className="homeNewsSlider lg:w-3/4 h-auto"
+            >
+              <SwiperSlide>
+                <img src={news1} alt="news1" className="w-full h-full shadow-lg " />
+              </SwiperSlide>
+              <SwiperSlide>
+                <img src={news2} alt="news2" />
+              </SwiperSlide>
+              <SwiperSlide>
+                <img src={news3} alt="news3" />
+              </SwiperSlide>
+              <SwiperSlide>
+                <img src={news4} alt="news4" />
+              </SwiperSlide>
+              <div className="swiper-pagination"></div>
+              <div className="swiper-button-prev">
+                <img src={prevIcon} alt="prevIcon" />
+              </div>
+              <div className="swiper-button-next">
+                <img src={nextIcon} alt="nextIcon" />
+              </div>
+            </Swiper>
+          </div>
         </div>
         <Link
-          to="/branches"
+          to="/news"
           onClick={() => window.scrollTo(0, 0)}
           className="imgUp"
         >
-          <Button text="View All" />
+          <Button text="View More" />
         </Link>
       </section>
-      <section className="w-full h-screen flex flex-col items-center justify-center">
-        <h1 className="my-12 text-4xl md:text-5xl header font-tnr font-bold text-blue-900 text-center">
-          Discount Cards
-        </h1>
-        <div className="flex flex-col md:flex-row mx-16 lg:mx-32 mb-12 h-1/2 md:h-auto">
-          <div className="imgSlideRight w-80 md:w-auto">
-            <img src={card1} alt="card1" />
+      <section className="w-full h-auto my-24 ">
+        <div className="w-full h-full px-4 md:px-8 lg:px-16 xl:px-24 flex flex-col md:flex-row items-center justify-center">
+          <div className="w-5/12 flex flex-col items-center">
+            <img src={phMap} alt="el2" className="imgSlideRight md:w-9/12" />
           </div>
-          <div className="imgSlideLeft w-80 md:w-auto">
-            <img src={card2} alt="card2" />
+          <div className="md:w-7/12">
+            <h1 className="imgUp text-4xl lg:text-6xl font-cambria font-bold text-blue-900 my-4 text-center md:text-right">
+              Be Part of our <br />
+              Growing Partners!
+            </h1>
+            <p className="imgUp font-cambria text-md lg:text-2xl my-4 text-justify md:text-right">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat.
+            </p>
+            <div className="imgSlideLeft flex w-full justify-center md:justify-end">
+              <Link to="/careers" onClick={() => window.scrollTo(0, 0)}>
+                <Button text="Franchise Now" />
+              </Link>
+            </div>
           </div>
         </div>
-        <div className="fadeIn flex flex-col items-center">
-          <h2 className="font-cambria text-xl md:text-3xl font-bold ">
-            AVAILABLE NATIONWIDE
-          </h2>
-          <h3 className="font-cambria text-xl md:text-3xl">
-            For Only P200.00
-          </h3>
-          <Button text="Apply Now" />
+      </section>
+      <section className="w-full h-auto xl:h-screen flex flex-col items-center bg-dimPink">
+        <h1 className="z-20 my-12 text-4xl md:text-5xl header font-tnr font-bold text-blue-900 text-center">
+          Testimonials
+        </h1>
+        <div className="imgUp w-full px-4 xl:px-12 z-20 flex flex-col md:flex-row  items-center justify-center">
+          <Swiper
+            modules={[Navigation, Pagination]}
+            className="testimonialSwiper w-full"
+            slidesPerView={1}
+            pagination={{
+              el: ".swiper-pagination", // Use a CSS selector to specify the pagination container
+              clickable: true, // Allow clicking on pagination bullets to navigate
+            }}
+            navigation={{
+              //navigation(arrows)
+              nextEl: ".swiper-button-next",
+              prevEl: ".swiper-button-prev",
+            }}
+          >
+            <SwiperSlide>
+              <div className="hidden lg:flex w-full h-auto justify-center gap-12 xl:gap-24 ">
+                <div classname="w-1/2 relative">
+                  <img
+                    src={testimonials}
+                    alt="testimonials"
+                    className="w-96 h-auto object-contain shadow-xl"
+                  />
+                  <div className="absolute top-0 flex px-4 pt-12 flex-col w-full h-full gap-20 justify-center ">
+                    <p className="w-[22rem] font-cambria text-xl text-blue-900 text-justify ">
+                      "Fantastic service, shortened an evening dress for me with
+                      no notice at all, Am so grateful to Paras Alter Station &
+                      would thorougly recommend their services."
+                    </p>
+                    <div className="flex w-full justify-start items-center gap-2">
+                      <img src={profile} alt="profile" className="w-12" />
+                      <p className="text-md font-cambria text-black">
+                        Rachel (March 2020)
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div classname="hidden w-1/2 relative">
+                  <img
+                    src={testimonials}
+                    alt="testimonials"
+                    className="w-96 h-auto object-contain shadow-xl"
+                  />
+                  <div className="absolute top-0 flex px-4 pt-12 flex-col w-full h-full gap-12 justify-center ">
+                    <p className="w-[22rem] font-cambria text-lg text-blue-900 text-justify ">
+                      "Can’t thank Paras Alteration enough for doing my wedding
+                      dress amendments - they did exactly what I wanted & I am
+                      so pleased with the end result. Thank you! Highly
+                      recommend."
+                    </p>
+                    <div className="flex w-full justify-start items-center gap-2">
+                      <img src={profile} alt="profile" className="w-12" />
+                      <p className="text-md font-cambria text-black">
+                        Aubrey (February 2020)
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="flex lg:hidden w-full h-auto justify-center gap-24 ">
+                <div classname="w-1/2 relative">
+                  <img
+                    src={testimonials}
+                    alt="testimonials"
+                    className="w-96 h-auto object-contain shadow-xl"
+                  />
+                  <div className="absolute top-0 flex px-4 pt-12 flex-col w-full h-full gap-20 justify-center ">
+                    <p className="w-[22rem] font-cambria text-xl text-blue-900 text-justify ">
+                    "Fantastic service, shortened an evening dress for me with
+                      no notice at all, Am so grateful to Paras Alter Station &
+                      would thorougly recommend their services."
+                    </p>
+                    <div className="flex w-full justify-start items-center gap-2">
+                      <img src={profile} alt="profile" className="w-12" />
+                      <p className="text-md font-cambria text-black">
+                        Rachel (March 2020)
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </SwiperSlide>
+            <SwiperSlide className="hidden">
+              <div className="flex w-full h-auto justify-center gap-24 ">
+                <div classname="w-1/2 relative">
+                  <img
+                    src={testimonials}
+                    alt="testimonials"
+                    className="w-96 h-auto object-contain shadow-xl"
+                  />
+                  <div className="absolute top-0 flex px-4 pt-12 flex-col w-full h-full gap-20 justify-center ">
+                    <p className="w-[22rem] font-cambria text-xl text-blue-900 text-justify ">
+                      "Very pleased with the shortening of curtains & the lovely
+                      tie backs made with the waste material. Quick & reasonably
+                      priced service."
+                    </p>
+                    <div className="flex w-full justify-start items-center gap-2">
+                      <img src={profile} alt="profile" className="w-12" />
+                      <p className="text-md font-cambria text-black">
+                        Ellen (October 2019)
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </SwiperSlide>
+            <div className="swiper-pagination"></div>
+              <div className="swiper-button-prev">
+                <img src={prevIcon} alt="prevIcon" />
+              </div>
+              <div className="swiper-button-next">
+                <img src={nextIcon} alt="nextIcon" />
+              </div>
+          </Swiper>
         </div>
       </section>
       <Footer />

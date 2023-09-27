@@ -2,8 +2,10 @@ import React from "react";
 import img1 from "../assets/ELEMENTS-18.png";
 import img2 from "../assets/ELEMENTS-17.png";
 import img3 from "../assets/ELEMENTS-16.png";
-import logo2 from "../assets/WEB LOGO WHITE.png";
-import logo3 from "../assets/contact-08.png";
+import logo2 from "../assets/PAS Logo - White Blue R (Medium).png";
+import logo3 from "../assets/Parush White.png";
+import logo4 from "../assets/Bespoke.png";
+import logo5 from "../assets/F&F Logo - Clear_Colored(1).png";
 import fb from "../assets/ELEMENTS-19.png";
 import ig from "../assets/ELEMENTS-20.png";
 
@@ -29,13 +31,21 @@ const Footer = () => {
               placeholder="Email"
             />
           </div>
-          <div className="w-full md:w-1/2 flex items-center lg:justify-start justify-center h-full">
-            <textarea
-              type="text"
-              name="message"
-              className="font-cambria h-28 p-2 md:p-2 m-2 bg-transparent w-11/12 md:w-9/12 border-2 rounded-xl border-white text-white"
-              placeholder="Message"
-            />
+          <div className="w-full md:w-1/2 flex lg:justify-start justify-center h-full">
+            <div className="h-28 p-2 m-2 w-11/12 md:w-9/12 border-2 rounded-xl border-white">
+              <select
+                name="concern"
+                className="font-cambria text-lg w-full border-none text-gray-400 bg-black"
+              >
+                <option value="" disabled selected hidden>
+                  Concern
+                </option>
+                <option value="Franchise" className="text-white">Franchise</option>
+               <option value="Job Application"  className="text-white">Job Application</option>
+                <option value="Store Concerns"  className="text-white">Store Concerns</option>
+               <option value="Other Concerns"  className="text-white">Other Concerns</option>
+              </select>
+            </div>
           </div>
         </div>
         <div>
@@ -54,8 +64,14 @@ const Footer = () => {
           <img src={img3} alt="img3" className="w-16 lg:w-32" />
         </div>
         <div className="flex flex-col justify-center items-center gap-4">
-          <img src={logo2} alt="logo2" className="w-24 lg:w-80" />
-          <img src={logo3} alt="logo3" className="w-24 lg:w-80" />
+          <img src={logo2} alt="logo2" className="w-24 lg:w-72 mb-5" />
+          <h2 className="font-cambria text-white text-3xl">Our Brands</h2>
+          <div className="w-full flex gap-2 justify-center">
+            <img src={logo4} alt="logo3" className="w-24 lg:w-40" />
+            <img src={logo3} alt="logo3" className="w-24 lg:w-40" />
+            <img src={logo5} alt="logo3" className="w-24 lg:w-40" />
+          </div>
+          
         </div>
         <div className="flex flex-col items-end gap-2">
           <div className="flex justify-end">

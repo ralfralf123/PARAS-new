@@ -1,19 +1,18 @@
-import React, {useRef, useEffect} from "react";
+import React, { useRef, useEffect } from "react";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
-import bg from "../assets/CAREERS_FRANCHISE-35.jpg";
-import bg2 from "../assets/CAREERS_FRANCHISE-19.jpg";
-import el3 from "../assets/CAREERS_FRANCHISE-11.png";
+import bg from "../assets/cfp-21(1) (Large).png";
+import el3 from "../assets/quali-27(1) (Small).png";
 import Button from "../components/Button";
-import el2 from "../assets/CAREERS_FRANCHISE-10.png";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Link } from "react-router-dom";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Careers = () => {
   const el1Ref = useRef(null);
-  
+
   useEffect(() => {
     const el1 = el1Ref.current;
     const imagesUp = gsap.utils.toArray(".imgUp");
@@ -23,8 +22,8 @@ const Careers = () => {
 
     gsap.set(el1, {
       opacity: 0,
-      y: 100
-    })
+      y: 100,
+    });
 
     gsap.set(fadeIn, { opacity: 0 });
 
@@ -164,10 +163,9 @@ const Careers = () => {
       delay: 0.5,
       y: 0,
       ease: "expo",
-      stagger: 0.1
-
-    })
-  },[]);
+      stagger: 0.1,
+    });
+  }, []);
 
   return (
     <>
@@ -178,63 +176,144 @@ const Careers = () => {
           alt="bg"
           className="absolute inset-0 object-cover w-full h-screen"
         />
-        <div className="absolute inset-0 flex flex-col w-full h-full lg:items-start items-end justify-center px-6 pt-64">
-          <h1 className="text-white lg:text-blue-900 text-4xl lg:text-7xl font-bold font-tnr xl:ml-24 mb-4" ref={el1Ref}>
+        <div className="absolute inset-0 flex flex-col w-full h-full items-center lg:items-end justify-start lg:justify-start xl:px-24 pt-64">
+          <h1
+            className="text-blue-900 text-4xl lg:text-7xl font-bold font-tnr xl:ml-24 mb-4"
+            ref={el1Ref}
+          >
             Careers at <br /> Paras Alter <br /> Station
           </h1>
         </div>
       </section>
-      <section className="w-full h-screen relative ">
-        <img
-          src={bg2}
-          alt="bg2"
-          className="absolute inset-0 object-cover w-full h-screen"
-        />
-        <div className="absolute w-full h-full px-4 xl:px-24 flex flex-col md:flex-row justify-center items-end pb-20">
-          <div className="flex md:hidden flex-col items-center justify-center mt-20">
+      <section className="w-full h-auto relative ">
+        <div className="w-full h-full px-4 md:px-8 lg:px-16 xl:px-24 flex flex-col md:flex-row justify-start items-start py-4 lg:py-24 ">
+          <div className="flex w-full md:hidden flex-col items-center justify-center mt-20">
             <img src={el3} alt="el3" className="w-72 imgSlideLeft" />
-            <h1 className="imgSlideRight text-4xl lg:text-7xl font-cambria font-bold text-blue-900 my-4">
+          </div>
+          <div className="md:w-7/12 flex flex-col items-center md:items-start">
+            <h1 className="imgUp text-4xl lg:text-7xl font-cambria font-bold text-blue-900 my-4">
               Qualification
             </h1>
-          </div>
-          <div className="md:w-7/12">
             <p className="imgUp font-cambria text-md lg:text-2xl text-justify my-4">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
               enim ad minim veniam, quis nostrud exercitation ullamco laboris
               nisi ut aliquip ex ea commodo consequat.
             </p>
-            <div className="imgSlideRight w-full flex justify-center md:justify-start ">
-              <Button text="Apply Now" />
+            <ul className="imgUp md:ml-24 font-cambria text-md lg:text-2xl text-justify ">
+              <li>-Lorem Ipsum</li>
+              <li>-Lorem Ipsum</li>
+              <li>-Lorem Ipsum</li>
+              <li>-Lorem Ipsum</li>
+            </ul>
+            <div className="imgSlideRight w-full flex justify-center md:justify-start mt-8 ">
+              <Link to="/contact" onClick={() => window.scrollTo(0, 0)}>
+                <Button text="Apply Now" />
+              </Link>
             </div>
           </div>
           <div className="hidden w-5/12 md:flex flex-col items-end">
-            <img src={el3} alt="el3" className="imgSlideLeft w-6/12" />
-            <h1 className="imgUp text-4xl lg:text-7xl font-cambria font-bold text-blue-900 my-4">
-              Qualification
-            </h1>
+            <img src={el3} alt="el3" className="imgSlideLeft w-full" />
           </div>
         </div>
       </section>
-      <section className="w-full h-screen ">
-        <div className="w-full h-full px-4 lg:px-24 flex flex-col md:flex-row items-center justify-center">
-          <div className="w-5/12">
-            <img src={el2} alt="el2" className="imgSlideRight md:w-9/12" />
-          </div>
-          <div className="md:w-7/12">
-            <h1 className="imgUp text-4xl lg:text-6xl font-cambria font-bold text-blue-900 my-4 text-center md:text-right">
-              Be Part of our <br />
-              Growing Partners!
-            </h1>
-            <p className="imgUp font-cambria text-md lg:text-2xl my-4 text-justify md:text-right">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.
+      <section className="w-full h-auto my-12 relative ">
+        <div className="w-full h-full flex flex-col items-center justify-center">
+          <h1 className="imgUp text-4xl lg:text-7xl font-cambria font-bold text-blue-900 bg-dimBlue w-full py-6 text-center">
+            Be Part Of Our Growing Partners!
+          </h1>
+          <div className="fadeIn lex flex-col px-4 md:px-8 lg:px-16 xl:px-24 py-8 w-full justify-start">
+            <h2 className="font-cambria text-2xl lg:text-4xl font-bold pb-8 ">
+              Application Process and Requirements
+            </h2>
+            <p className="font-cambria text-lg lg:text-2xl text-blue-800">
+              Step 1: Inquiry
             </p>
-            <div className="imgSlideLeft flex w-full justify-center md:justify-end">
-              <Button text="Franchise Now" />
+            <ul className="md:ml-20 font-cambria text-md lg:text-2xl text-justify ">
+              <li>a. Letter of Intent with list of 3 preferred locations</li>
+              <li>b. Application Form</li>
+              <li>c. Resume with colored ID Phone and;</li>
+              <li>e. Bank statement (at least 3 months)</li>
+            </ul>
+            <p className="font-cambria text-lg lg:text-2xl text-blue-800">
+              Step 2: Evaluation & Approval
+            </p>
+            <p className="md:ml-20 font-cambria text-md lg:text-2xl text-justify ">
+              Schedule of First meeting for presentation, inteview, and
+              discussion of the ROI, construction, payment terms, suggested
+              location, acquire existing branch, and other concerns.
+            </p>
+            <p className="font-cambria text-lg lg:text-2xl text-blue-800">
+              Step 3: Payment & Contact Signing
+            </p>
+            <p className="md:ml-20 font-cambria text-md lg:text-2xl text-justify ">
+              Payment for reservation, Initial investment and signing off
+              franchise agreement (FA) contract.
+            </p>
+            <p className="font-cambria text-lg lg:text-2xl text-blue-800">
+              Step 4: Opening/Turn Over
+            </p>
+            <ul className="md:ml-20 font-cambria text-md lg:text-2xl text-justify ">
+              <li>a. Opening (New Store)</li>
+              <li>b. Sales and Leasing Turnover Form</li>
+              <li>c. Store Turnover</li>
+            </ul>
+          </div>
+          <div className="flex w-full justify-center">
+            <a
+              href="../assets/Application-form.pdf"
+              download="Application-form.pdf"
+            >
+              <Button text="Download Application Form" />
+            </a>
+          </div>
+        </div>
+      </section>
+      <section className="w-full h-auto mt-12 relative ">
+        <div className="w-full h-full flex flex-col items-center justify-center py-12">
+          <h1 className="imgUp text-center text-4xl lg:text-7xl font-cambria font-bold text-blue-900">
+            Submit Your Application Today!
+          </h1>
+          <div className="w-full flex flex-col px-4 md:px-8 lg:px-16 xl:px-24 mt-8 md:mt-16">
+            <div className="flex justify-start">
+              <p className="fadeIn font-cambria text-lg lg:text-2xl ">Name</p>
             </div>
+            <form className="fadeIn font-cambria gap-4 md:gap-12 flex flex-col w-full items-center justify-center translate-y-4">
+              <div className="w-full flex gap-2 md:gap-24">
+                <div className="w-1/2 flex flex-col gap-2">
+                  <input
+                    type="text"
+                    name="firstName"
+                    className=" p-2 md:p-3 bg-transparent border-2 rounded-xl border-blue-900"
+                    required
+                  />
+                  <p className="font-cambria">First</p>
+                </div>
+                <div className="w-1/2 flex flex-col gap-2">
+                  <input
+                    type="text"
+                    name="firstName"
+                    className="p-2 md:p-3 bg-transparent border-2 rounded-xl border-blue-900"
+                    required
+                  />
+                  <p className="font-cambria">Last</p>
+                </div>
+              </div>
+              <div className="w-full flex justify-start gap-24">
+                <div className="w-1/2 flex flex-col gap-2">
+                  <p className="font-cambria text-lg lg:text-2xl ">Email</p>
+                  <input
+                    type="email"
+                    name="email"
+                    className=" p-2 md:p-3 bg-transparent border-2 rounded-xl border-blue-900"
+                  />
+                </div>
+                <div className="w-1/2 flex flex-col gap-2"></div>
+              </div>
+              <div className="w-full flex justify-center">
+                <Button text="Submit" />
+              </div>
+            </form>
           </div>
         </div>
       </section>
