@@ -137,6 +137,7 @@ const Branches = () => {
             className={`text-center py-4 rounded-3xl font-cambria font-bold text-[0.5rem] md:text-lg shadow-lg transition ease-in-out duration-3000 cursor-pointer hover:bg-blue-900 hover:text-white ${
               visibleColumn === "visayas" ? " bg-blue-900 text-white" : "bg-white"
             }`}
+            onClick={() => toggleColumn("visayas")}
           >
             Visayas
           </div>

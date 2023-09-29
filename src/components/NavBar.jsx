@@ -54,7 +54,7 @@ const NavBar = () => {
         </li>
         <li className="text-blue-800 font-tnr text-lg cursor-pointer hidden md:flex">
           <NavLink
-            to="/services"
+            to="/services?source=generalAlteration"
             onClick={() => window.scrollTo(0, 0)}
             className={({ isActive }) =>
               isActive ? "text-black font-semibold" : "text-blue-800 hover:text-black transition ease-in-out duration-300"
@@ -149,7 +149,7 @@ const NavBar = () => {
         </li>
         <li className="text-blue-800 font-tnr border-b border-gray-300 text-lg p-2 cursor-pointer transition duration-500 ease-in-out hover:text-black">
           <NavLink
-            to="/services"
+            to="/services?source=generalAlteration"
             onClick={() => window.scrollTo(0, 0)}
             className={({ isActive }) =>
               isActive ? "text-black font-semibold" : "text-blue-800"

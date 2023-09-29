@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import bg from "../assets/contact-25.jpg";
@@ -6,10 +6,13 @@ import Button from "../components/Button";
 import el1 from "../assets/contact-09.png";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import PopUp from "../components/PopUp";
 
 gsap.registerPlugin(ScrollTrigger);
+
 const Contact = () => {
   const el1Ref = useRef(null);
+  const [timedPopup, setTimedPopup] = useState(false);
 
   useEffect(() => {
     const el1 = el1Ref.current;
@@ -131,6 +134,12 @@ const Contact = () => {
     });
   }, []);
 
+  useEffect(() => {
+    setTimeout(() => {
+      setTimedPopup(true);
+    }, 4000);
+  }, []);
+
   return (
     <>
       <section className="w-full h-screen flex flex-col">
@@ -148,6 +157,7 @@ const Contact = () => {
             We'd love to hear from you!
           </h1>
         </div>
+        <PopUp trigger={timedPopup} setTrigger={setTimedPopup} className="imgSlideLeft" />
       </section>
       <section className="w-full h-auto my-24 flex flex-col">
         <div className="inset-0 flex flex-col w-full h-full justify-center items-center px-8 md:px-0">

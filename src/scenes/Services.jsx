@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
+import { useLocation } from 'react-router-dom';
 import NavBar from "../components/NavBar";
 import bgServices from "../assets/BG-33.jpg";
 import Footer from "../components/Footer";
@@ -8,13 +9,18 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const Services = () => {
+  const location = useLocation();
+  const source = new URLSearchParams(location.search).get('source');
+
   const el2Ref = useRef(null);
 
-  const [visibleColumn, setVisibleColumn] = useState("generalAlteration");
+  const [visibleColumn, setVisibleColumn] = useState(source);
 
   const toggleColumn = (columnId) => {
     setVisibleColumn(columnId);
   };
+
+
 
   useEffect(() => {
     const el2 = el2Ref.current;
@@ -227,7 +233,7 @@ const Services = () => {
           </p>
         </div>
       </section>
-      <section className="w-full h-auto  relative" id="general-alteration">
+      <section className="w-full h-auto  relative" id="services-table">
         <div className="w-full bg-dimPink">
           <h1 className="imgSlideRight text-center md:text-left p-6 text-4xl lg:text-7xl font-tnr font-bold text-blue-900 mb-4 px-24">
             Our Services

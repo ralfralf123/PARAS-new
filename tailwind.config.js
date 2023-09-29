@@ -10,7 +10,8 @@ module.exports = {
         secondary: "#00f6ff",
         dimWhite: "rgba(255, 255, 255, 0.7)",
         dimBlue: "#e4e4f5",
-        dimPink: "#eae1e6"
+        dimPink: "#eae1e6",
+        opaqueWhite: "rgba(255, 255, 255, 0.5)"
       },
       fontFamily: {
         tnr: ["Times New Roman", "sans-serif"],

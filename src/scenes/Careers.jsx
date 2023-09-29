@@ -7,6 +7,7 @@ import Button from "../components/Button";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Link } from "react-router-dom";
+import AppForm from "../assets/Application-form.pdf"
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -219,9 +220,11 @@ const Careers = () => {
       </section>
       <section className="w-full h-auto my-12 relative ">
         <div className="w-full h-full flex flex-col items-center justify-center">
-          <h1 className="imgUp text-4xl lg:text-7xl font-cambria font-bold text-blue-900 bg-dimBlue w-full py-6 text-center">
-            Be Part Of Our Growing Partners!
-          </h1>
+          <div className="bg-dimBlue w-full py-6 text-center">
+            <h1 className="imgUp text-4xl lg:text-7xl font-cambria font-bold text-blue-900">
+              Be Part Of Our Growing Partners!
+            </h1>
+          </div>
           <div className="fadeIn lex flex-col px-4 md:px-8 lg:px-16 xl:px-24 py-8 w-full justify-start">
             <h2 className="font-cambria text-2xl lg:text-4xl font-bold pb-8 ">
               Application Process and Requirements
@@ -261,7 +264,7 @@ const Careers = () => {
           </div>
           <div className="flex w-full justify-center">
             <a
-              href="../assets/Application-form.pdf"
+              href={AppForm}
               download="Application-form.pdf"
             >
               <Button text="Download Application Form" />
