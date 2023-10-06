@@ -5,7 +5,7 @@ import bg2 from "../assets/PARAS-WEB-DESIGN_REVISED-07(1).png";
 import el1 from "../assets/About Us Page-08.png";
 import el2 from "../assets/About Us Page-09.png";
 import el3 from "../assets/PARAS-WEB-DESIGN_REVISED-24.png";
-import el4 from "../assets/PARAS-WEB-DESIGN_REVISED-24(1).png";
+import el4 from "../assets/PARAS-WEB-DESIGN_REVISED-25.png";
 import brand1 from "../assets/Bespoke.png";
 import brand2 from "../assets/F&F Logo - Clear_Colored (1).png";
 import brand3 from "../assets/Parush White.png";
@@ -35,6 +35,7 @@ const About = () => {
       const bodyText = gsap.utils.toArray(".bodyText");
       const imagesLeft = gsap.utils.toArray(".imgSideLeft");
       const imagesRight = gsap.utils.toArray(".imgSideRight");
+      const delayRight = gsap.utils.toArray(".delaySlideRight");
 
       gsap.set(headers, {
         opacity: 0,
@@ -56,6 +57,29 @@ const About = () => {
         x: 400,
       });
 
+      gsap.set(delayRight, {
+        opacity: 0,
+        x: -400,
+      });
+
+      delayRight.forEach((delayRight) => {
+        ScrollTrigger.create({
+          trigger: delayRight,
+          start: "top bottom",
+          end: "bottom top",
+          onEnter: () => {
+            gsap.to(delayRight, {
+              duration: 2,
+              opacity: 1,
+              delay: 0.5,
+              x: 0,
+              ease: "expo",
+            });
+          },       
+        });
+      });
+
+
       headers.forEach((header) => {
         ScrollTrigger.create({
           trigger: header,
@@ -69,17 +93,6 @@ const About = () => {
               ease: "expo",
               stagger: 0.4,
             });
-          },
-          onEnterBack: () => {
-            gsap.to(header, {
-              opacity: 1,
-              duration: 2,
-              y: 0,
-              ease: "expo",
-            });
-          },
-          onLeave: () => {
-            gsap.set(header, { opacity: 0, y: 100 });
           },
         });
       });
@@ -97,17 +110,6 @@ const About = () => {
               ease: "expo",
             });
           },
-          onEnterBack: () => {
-            gsap.to(imagesLeft, {
-              duration: 2,
-              opacity: 1,
-              x: 0,
-              ease: "expo",
-            });
-          },
-          onLeave: () => {
-            gsap.set(imagesLeft, { x: -400 });
-          },
         });
       });
 
@@ -123,18 +125,7 @@ const About = () => {
               x: 0,
               ease: "expo",
             });
-          },
-          onEnterBack: () => {
-            gsap.to(imageRight, {
-              duration: 2,
-              opacity: 1,
-              x: 0,
-              ease: "expo",
-            });
-          },
-          onLeave: () => {
-            gsap.set(imageRight, { x: 400 });
-          },
+          },        
         });
       });
 
@@ -151,18 +142,6 @@ const About = () => {
               y: 0,
               ease: "expo",
             });
-          },
-          onEnterBack: () => {
-            gsap.to(body, {
-              opacity: 1,
-              duration: 2,
-              delay: 0.2,
-              y: 0,
-              ease: "expo",
-            });
-          },
-          onLeave: () => {
-            gsap.set(body, { opacity: 0, y: 100 });
           },
         });
       });
@@ -202,7 +181,7 @@ const About = () => {
           className="absolute inset-0 object-cover w-full h-screen"
         />
         <div className="absolute inset-0 flex flex-col lg:flex-row w-full h-full md:px-8 lg:px-16 xl:px-24 pt-24">
-          <div className="imgSideLeft flex w-full h-3/4 lg:h-full lg:w-7/12 items-center justify-center">
+          <div className="delaySlideRight flex w-full h-3/4 lg:h-full lg:w-7/12 items-center justify-center">
             <Swiper
               modules={[Navigation, Autoplay, Pagination]}
               navigation={{

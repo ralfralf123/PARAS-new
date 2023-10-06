@@ -11,6 +11,7 @@ import News from './scenes/News';
 import Labels from './scenes/Labels';
 import Tips from './scenes/Tips';
 import Denim from './scenes/Denim';
+import { branchesNCR } from './data/BranchData';
 
 const App = () => {
   return (
@@ -23,11 +24,12 @@ const App = () => {
       <Route path="/branches"  element={<Branches/>}/>
       <Route path="/careers"  element={<Careers/>}/>
       <Route path="/contact"  element={<Contact/>}/>
-      <Route path="/details"  element={<Details/>}/>
       <Route path="/news"  element={<News/>}/>
       <Route path="/labels"  element={<Labels/>}/>
       <Route path="/tips"  element={<Tips/>}/>
       <Route path="/denim"  element={<Denim/>}/>
+
+      <Route path="/details/:branchId"  element={<Details/>}/>
       </Routes>
       </div>
     </>

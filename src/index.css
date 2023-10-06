@@ -9,11 +9,6 @@ body {
   overflow-x: hidden;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
 .bgSlider .swiper-pagination-bullet{
   width: 15px;
   height: 15px;

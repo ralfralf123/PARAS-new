@@ -1,51 +1,90 @@
 import React from "react";
+import { useLocation } from 'react-router-dom';
+
 import { Link } from "react-router-dom";
-import marker from "../assets/BRANCHES-11.png";
+import { useParams, useNavigate } from "react-router-dom";
 import Footer from "../components/Footer";
 import Button from "../components/Button";
+import { branchesNCR, branchesRegion3, branchesRegionIV } from "../data/BranchData";
 
 const Details = () => {
+  const { branchId } = useParams();
+  const navigate = useNavigate();
+  let branch;
+
+  const location = useLocation();
+  const region = new URLSearchParams(location.search).get('region');
+
+  if (region === 'metro-manila') {
+    branch = branchesNCR.find((branch) => branch._id === branchId);
+  } else if (region === 'south-luzon') {
+    branch = branchesRegionIV.find((branch) => branch._id === branchId);
+  } else if (region === 'north-luzon') {
+    branch = branchesRegion3.find((branch) => branch._id === branchId);
+  }
+
+
+  // If the branch is not found, you can handle it here or redirect to an error page
+  if (!branch) {
+    // For example, you can redirect to a 404 page
+    navigate("/404");
+    return null;
+  }
+
+  const length = Object.keys(branch).length;
+
   return (
     <>
       <section className="w-full h-screen ">
-        <div className="w-full h-full px-4 md:px-8 lg:px-24 flex flex-col bg-violet-100 md:flex-row items-center justify-center">
-          <div className="w-1/4 h-5/6 md:flex justify-center hidden">
+        <div className="w-full h-full py-8 lg:py-0 px-4 md:px-8 lg:px-12 xl:px-24 flex bg-violet-100 flex-col lg:flex-row items-center justify-center">
+          <div className="w-full lg:w-1/4 h-5/6 md:flex justify-center">
             <div className="h-full w-full bg-white rounded-[4rem] flex flex-col p-4">
-              <div className="h-1/4 border-b border-gray-400 p-4">
-                <h1 className="text-3xl text-blue-900 font-cambria font-bold">
+              <div
+                className={`h-${
+                  length === 8 ? "1/2 border-b" : length === 7 ? "full border-none" : "1/3 border-b"
+                }   border-gray-400 p-4`}
+              >
+                <h1 className="text-xl md:text-3xl text-blue-900 font-cambria font-bold">
                   Address
                 </h1>
+                <div className="h-[80%] flex items-center">
+                  <p className="font-cambria">{branch.address}</p>
+                </div>
               </div>
-              <div className="h-1/4 border-b border-gray-400 p-4">
-                <h1 className="text-3xl text-blue-900 font-cambria font-bold">
-                  Mall Hours
-                </h1>
-              </div>
-              <div className="h-1/4 border-b border-gray-400 p-4">
-                <h1 className="text-3xl text-blue-900 font-cambria font-bold">
-                  Contact Us
-                </h1>
-              </div>
-              <div className="h-1/4 p-4">
-                <h1 className="text-3xl text-blue-900 font-cambria font-bold">
-                  Social Media
-                </h1>
-              </div>
+              {branch.mallHours ? (
+                <div
+                  className={`h-1/3 ${
+                    branch.contact ? "border-b" : "border-none"
+                  } border-gray-400 p-4`}
+                >
+                  <h1 className="text-xl md:text-3xl text-blue-900 font-cambria font-bold">
+                    Mall Hours
+                  </h1>
+                  <div className="h-[80%] flex items-center">
+                    <p className="font-cambria text-lg md:text-2xl">
+                      {branch.mallHours}
+                    </p>
+                  </div>
+                </div>
+              ) : null}
+              {branch.contact ? (
+                <div className="h-1/3 p-4">
+                  <h1 className="text-xl md:text-3xl text-blue-900 font-cambria font-bold">
+                    Contact Us
+                  </h1>
+                  <div className="h-[80%] flex items-center">
+                    <p className="font-cambria text-base md:text-xl">
+                      {branch.contact}
+                    </p>
+                  </div>
+                </div>
+              ) : null}
             </div>
           </div>
-          <div className="md:w-3/4 flex flex-col items-start">
-            <iframe
-              src={`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3863.735881886682!2d120.99572907481706!3d14.44237888602547!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397d13dedb44009%3A0x6dbc2b1228bf9831!2sRobinsons%20Las%20Pi%C3%B1as!5e0!3m2!1sen!2sph!4v1693020504734!5m2!1sen!2sph&amp;
-            markers=icon:${marker}|14.44237888602547,120.99572907481706`}
-              title="Robinsons Las Piñas Location"
-              height="450"
-              allowFullScreen=""
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              className="w-full p-4"
-            ></iframe>
+          <div className="w-full md:w-3/4 ml-4 flex flex-col items-start pt-4 lg:pt-0">
+            <img src={branch.map} alt="" />
             <div className="w-full flex justify-end px-4">
-              <Link to="/branches" onClick={() => window.scrollTo(0, 0)}>
+              <Link to="/branches" onClick={() => window.scrollTo(0, 640)}>
                 <Button text="Back to Branches" />
               </Link>
             </div>

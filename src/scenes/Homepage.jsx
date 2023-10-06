@@ -96,17 +96,6 @@ const Homepage = () => {
               ease: "expo",
             });
           },
-          onEnterBack: () => {
-            gsap.to(fadeIn, {
-              duration: 2,
-              delay: 0.3,
-              opacity: 1,
-              ease: "expo",
-            });
-          },
-          onLeave: () => {
-            gsap.set(fadeIn, { opacity: 0 });
-          },
         });
       });
   
@@ -123,17 +112,6 @@ const Homepage = () => {
               ease: "expo",
             });
           },
-          onEnterBack: () => {
-            gsap.to(imagesLeft, {
-              duration: 2,
-              opacity: 1,
-              x: 0,
-              ease: "expo",
-            });
-          },
-          onLeave: () => {
-            gsap.set(imagesLeft, { x: 400 });
-          },
         });
       });
   
@@ -149,17 +127,6 @@ const Homepage = () => {
               x: 0,
               ease: "expo",
             });
-          },
-          onEnterBack: () => {
-            gsap.to(imageRight, {
-              duration: 2,
-              opacity: 1,
-              x: 0,
-              ease: "expo",
-            });
-          },
-          onLeave: () => {
-            gsap.set(imageRight, { x: -400 });
           },
         });
       });
@@ -178,17 +145,6 @@ const Homepage = () => {
               stagger: 0.4,
             });
           },
-          onEnterBack: () => {
-            gsap.to(header, {
-              opacity: 1,
-              duration: 2,
-              y: 0,
-              ease: "expo",
-            });
-          },
-          onLeave: () => {
-            gsap.set(header, { opacity: 0, y: 100 });
-          },
         });
       });
   
@@ -206,18 +162,7 @@ const Homepage = () => {
               ease: "expo",
             });
           },
-          onEnterBack: () => {
-            gsap.to(imgUp, {
-              opacity: 1,
-              duration: 2,
-              y: 0,
-              delay: 0.2,
-              ease: "expo",
-            });
-          },
-          onLeave: () => {
-            gsap.set(imgUp, { opacity: 0, y: 100 });
-          },
+
         });
       });
   

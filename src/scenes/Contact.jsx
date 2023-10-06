@@ -15,123 +15,99 @@ const Contact = () => {
   const [timedPopup, setTimedPopup] = useState(false);
 
   useEffect(() => {
-    const el1 = el1Ref.current;
-    const imagesDown = gsap.utils.toArray(".imgDown");
-    const imagesSlideRight = gsap.utils.toArray(".imgSlideRight");
-    const imagesUp = gsap.utils.toArray(".imgUp");
-
-    gsap.set(imagesUp, {
-      opacity: 0,
-      y: 100,
-    });
-
-    gsap.set(imagesDown, {
-      opacity: 0,
-      y: -100,
-    });
-
-    gsap.set(imagesSlideRight, {
-      opacity: 0,
-      x: -400,
-    });
-
-    imagesSlideRight.forEach((imageRight) => {
-      ScrollTrigger.create({
-        trigger: imageRight,
-        start: "top bottom",
-        end: "bottom top",
-        onEnter: () => {
-          gsap.to(imageRight, {
-            duration: 2,
-            opacity: 1,
-            x: 0,
-            ease: "expo",
-          });
-        },
-        onEnterBack: () => {
-          gsap.to(imageRight, {
-            duration: 2,
-            opacity: 1,
-            x: 0,
-            ease: "expo",
-          });
-        },
-        onLeave: () => {
-          gsap.set(imageRight, { x: -400 });
-        },
+    const playAnimation = () => {
+      const el1 = el1Ref.current;
+      const imagesDown = gsap.utils.toArray(".imgDown");
+      const imagesSlideRight = gsap.utils.toArray(".imgSlideRight");
+      const imagesUp = gsap.utils.toArray(".imgUp");
+  
+      gsap.set(imagesUp, {
+        opacity: 0,
+        y: 100,
       });
-    });
-
-    imagesUp.forEach((imgUp) => {
-      ScrollTrigger.create({
-        trigger: imgUp,
-        start: "top bottom",
-        end: "bottom top",
-        onEnter: () => {
-          gsap.to(imgUp, {
-            opacity: 1,
-            duration: 2,
-            delay: 0.2,
-            y: 0,
-            ease: "expo",
-          });
-        },
-        onEnterBack: () => {
-          gsap.to(imgUp, {
-            opacity: 1,
-            duration: 2,
-            y: 0,
-            delay: 0.2,
-            ease: "expo",
-          });
-        },
-        onLeave: () => {
-          gsap.set(imgUp, { opacity: 0, y: 100 });
-        },
+  
+      gsap.set(imagesDown, {
+        opacity: 0,
+        y: -100,
       });
-    });
-
-    imagesDown.forEach((imgUp) => {
-      ScrollTrigger.create({
-        trigger: imgUp,
-        start: "top bottom",
-        end: "bottom top",
-        onEnter: () => {
-          gsap.to(imgUp, {
-            opacity: 1,
-            duration: 2,
-            delay: 0.2,
-            y: 0,
-            ease: "expo",
-          });
-        },
-        onEnterBack: () => {
-          gsap.to(imgUp, {
-            opacity: 1,
-            duration: 2,
-            y: 0,
-            delay: 0.2,
-            ease: "expo",
-          });
-        },
-        onLeave: () => {
-          gsap.set(imgUp, { opacity: 0, y: 100 });
-        },
+  
+      gsap.set(imagesSlideRight, {
+        opacity: 0,
+        x: -400,
       });
-    });
-    gsap.set(el1, {
-      opacity: 0,
-      y: 100,
-    });
-
-    gsap.to(el1, {
-      opacity: 1,
-      duration: 2,
-      delay: 0.5,
-      y: 0,
-      ease: "expo",
-      stagger: 0.1,
-    });
+  
+      imagesSlideRight.forEach((imageRight) => {
+        ScrollTrigger.create({
+          trigger: imageRight,
+          start: "top bottom",
+          end: "bottom top",
+          onEnter: () => {
+            gsap.to(imageRight, {
+              duration: 2,
+              opacity: 1,
+              x: 0,
+              ease: "expo",
+            });
+          },
+        });
+      });
+  
+      imagesUp.forEach((imgUp) => {
+        ScrollTrigger.create({
+          trigger: imgUp,
+          start: "top bottom",
+          end: "bottom top",
+          onEnter: () => {
+            gsap.to(imgUp, {
+              opacity: 1,
+              duration: 2,
+              delay: 0.2,
+              y: 0,
+              ease: "expo",
+            });
+          },
+        });
+      });
+  
+      imagesDown.forEach((imgUp) => {
+        ScrollTrigger.create({
+          trigger: imgUp,
+          start: "top bottom",
+          end: "bottom top",
+          onEnter: () => {
+            gsap.to(imgUp, {
+              opacity: 1,
+              duration: 2,
+              delay: 0.2,
+              y: 0,
+              ease: "expo",
+            });
+          },
+        });
+      });
+      gsap.set(el1, {
+        opacity: 0,
+        y: 100,
+      });
+  
+      gsap.to(el1, {
+        opacity: 1,
+        duration: 2,
+        delay: 0.5,
+        y: 0,
+        ease: "expo",
+        stagger: 0.1,
+      });
+    }
+    
+    if (document.readyState === 'complete') {
+      playAnimation();
+    } else {
+      window.addEventListener('load', playAnimation);
+      // Remove the event listener when component unmounts
+      return () => window.removeEventListener('load', playAnimation);
+    }
+    
   }, []);
 
   useEffect(() => {

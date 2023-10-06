@@ -15,157 +15,123 @@ const Careers = () => {
   const el1Ref = useRef(null);
 
   useEffect(() => {
-    const el1 = el1Ref.current;
-    const imagesUp = gsap.utils.toArray(".imgUp");
-    const imagesSlideRight = gsap.utils.toArray(".imgSlideRight");
-    const imagesSlideLeft = gsap.utils.toArray(".imgSlideLeft");
-    const fadeIn = gsap.utils.toArray(".fadeIn");
+    const playAnimation = () => {
+      const el1 = el1Ref.current;
+      const imagesUp = gsap.utils.toArray(".imgUp");
+      const imagesSlideRight = gsap.utils.toArray(".imgSlideRight");
+      const imagesSlideLeft = gsap.utils.toArray(".imgSlideLeft");
+      const fadeIn = gsap.utils.toArray(".fadeIn");
 
-    gsap.set(el1, {
-      opacity: 0,
-      y: 100,
-    });
-
-    gsap.set(fadeIn, { opacity: 0 });
-
-    gsap.set(imagesUp, {
-      opacity: 0,
-      y: 100,
-    });
-
-    gsap.set(imagesSlideRight, {
-      opacity: 0,
-      x: -400,
-    });
-
-    gsap.set(imagesSlideLeft, {
-      opacity: 0,
-      x: 400,
-    });
-
-    gsap.set([el1], {
-      opacity: 0,
-      y: 100,
-    });
-
-    fadeIn.forEach((fadeIn) => {
-      ScrollTrigger.create({
-        trigger: fadeIn,
-        start: "top bottom",
-        end: "bottom top",
-        onEnter: () => {
-          gsap.to(fadeIn, {
-            duration: 4,
-            opacity: 1,
-            delay: 0.3,
-            ease: "expo",
-          });
-        },
-        onEnterBack: () => {
-          gsap.to(fadeIn, {
-            duration: 2,
-            delay: 0.3,
-            opacity: 1,
-            ease: "expo",
-          });
-        },
-        onLeave: () => {
-          gsap.set(fadeIn, { opacity: 0 });
-        },
+      gsap.set(el1, {
+        opacity: 0,
+        y: 100,
       });
-    });
 
-    imagesSlideLeft.forEach((imagesLeft) => {
-      ScrollTrigger.create({
-        trigger: imagesLeft,
-        start: "top bottom",
-        end: "bottom top",
-        onEnter: () => {
-          gsap.to(imagesLeft, {
-            duration: 2,
-            opacity: 1,
-            x: 0,
-            ease: "expo",
-          });
-        },
-        onEnterBack: () => {
-          gsap.to(imagesLeft, {
-            duration: 2,
-            opacity: 1,
-            x: 0,
-            ease: "expo",
-          });
-        },
-        onLeave: () => {
-          gsap.set(imagesLeft, { x: 400 });
-        },
+      gsap.set(fadeIn, { opacity: 0 });
+
+      gsap.set(imagesUp, {
+        opacity: 0,
+        y: 100,
       });
-    });
 
-    imagesSlideRight.forEach((imageRight) => {
-      ScrollTrigger.create({
-        trigger: imageRight,
-        start: "top bottom",
-        end: "bottom top",
-        onEnter: () => {
-          gsap.to(imageRight, {
-            duration: 2,
-            opacity: 1,
-            x: 0,
-            ease: "expo",
-          });
-        },
-        onEnterBack: () => {
-          gsap.to(imageRight, {
-            duration: 2,
-            opacity: 1,
-            x: 0,
-            ease: "expo",
-          });
-        },
-        onLeave: () => {
-          gsap.set(imageRight, { x: -400 });
-        },
+      gsap.set(imagesSlideRight, {
+        opacity: 0,
+        x: -400,
       });
-    });
 
-    imagesUp.forEach((imgUp) => {
-      ScrollTrigger.create({
-        trigger: imgUp,
-        start: "top bottom",
-        end: "bottom top",
-        onEnter: () => {
-          gsap.to(imgUp, {
-            opacity: 1,
-            duration: 2,
-            delay: 0.2,
-            y: 0,
-            ease: "expo",
-          });
-        },
-        onEnterBack: () => {
-          gsap.to(imgUp, {
-            opacity: 1,
-            duration: 2,
-            y: 0,
-            delay: 0.2,
-            ease: "expo",
-          });
-        },
-        onLeave: () => {
-          gsap.set(imgUp, { opacity: 0, y: 100 });
-        },
+      gsap.set(imagesSlideLeft, {
+        opacity: 0,
+        x: 400,
       });
-    });
 
-    gsap.to(el1, {
-      opacity: 1,
-      duration: 2,
-      delay: 0.5,
-      y: 0,
-      ease: "expo",
-      stagger: 0.1,
-    });
+      gsap.set([el1], {
+        opacity: 0,
+        y: 100,
+      });
+
+      fadeIn.forEach((fadeIn) => {
+        ScrollTrigger.create({
+          trigger: fadeIn,
+          start: "top bottom",
+          end: "bottom top",
+          onEnter: () => {
+            gsap.to(fadeIn, {
+              duration: 4,
+              opacity: 1,
+              delay: 0.3,
+              ease: "expo",
+            });
+          },
+        });
+      });
+
+      imagesSlideLeft.forEach((imagesLeft) => {
+        ScrollTrigger.create({
+          trigger: imagesLeft,
+          start: "top bottom",
+          end: "bottom top",
+          onEnter: () => {
+            gsap.to(imagesLeft, {
+              duration: 2,
+              opacity: 1,
+              x: 0,
+              ease: "expo",
+            });
+          },
+        });
+      });
+
+      imagesSlideRight.forEach((imageRight) => {
+        ScrollTrigger.create({
+          trigger: imageRight,
+          start: "top bottom",
+          end: "bottom top",
+          onEnter: () => {
+            gsap.to(imageRight, {
+              duration: 2,
+              opacity: 1,
+              x: 0,
+              ease: "expo",
+            });
+          },
+        });
+      });
+
+      imagesUp.forEach((imgUp) => {
+        ScrollTrigger.create({
+          trigger: imgUp,
+          start: "top bottom",
+          end: "bottom top",
+          onEnter: () => {
+            gsap.to(imgUp, {
+              opacity: 1,
+              duration: 2,
+              delay: 0.2,
+              y: 0,
+              ease: "expo",
+            });
+          },
+        });
+      });
+
+      gsap.to(el1, {
+        opacity: 1,
+        duration: 2,
+        delay: 0.5,
+        y: 0,
+        ease: "expo",
+        stagger: 0.1,
+      });
+    }
+    
+    if (document.readyState === 'complete') {
+      playAnimation();
+    } else {
+      window.addEventListener('load', playAnimation);
+      // Remove the event listener when component unmounts
+      return () => window.removeEventListener('load', playAnimation);
+    }
+    
   }, []);
 
   return (

@@ -3,9 +3,9 @@ import img1 from "../assets/ELEMENTS-18.png";
 import img2 from "../assets/ELEMENTS-17.png";
 import img3 from "../assets/ELEMENTS-16.png";
 import logo2 from "../assets/PAS Logo - White Blue R (Medium).png";
-import logo3 from "../assets/Parush White.png";
-import logo4 from "../assets/Bespoke.png";
-import logo5 from "../assets/F&F Logo - Clear_Colored(1).png";
+import logo3 from "../assets/Parush White (Small).png";
+import logo4 from "../assets/Bespoke (Small).png";
+import logo5 from "../assets/F&F Logo - Clear_Colored(1) (Small).png";
 import fb from "../assets/ELEMENTS-19.png";
 import ig from "../assets/ELEMENTS-20.png";
 
@@ -56,29 +56,29 @@ const Footer = () => {
       </form>
       <div className="w-full h-auto grid grid-cols-3 mt-16 px-4 md:px-12 pb-8">
         <div className="flex flex-col items-start gap-2">
-          <h2 className="text-white font-cambria text-md md:text-lg lg:text-2xl">
+          <h2 className="text-white font-cambria text-base md:text-lg lg:text-2xl">
             Official Member of:
           </h2>
           <img src={img1} alt="img1" className="w-24 lg:w-48" />
           <img src={img2} alt="img2" className="w-14 lg:w-28" />
           <img src={img3} alt="img3" className="w-16 lg:w-32" />
         </div>
-        <div className="flex flex-col justify-center items-center gap-4">
-          <img src={logo2} alt="logo2" className="w-24 lg:w-72 mb-5" />
-          <h2 className="font-cambria text-white text-3xl">Our Brands</h2>
-          <div className="w-full flex gap-2 justify-center">
-            <img src={logo4} alt="logo3" className="w-24 lg:w-40" />
-            <img src={logo3} alt="logo3" className="w-24 lg:w-40" />
-            <img src={logo5} alt="logo3" className="w-24 lg:w-40" />
+        <div className="flex flex-col justify-center items-center gap-1 md:gap-4">
+          <img src={logo2} alt="logo2" className="w-24 lg:w-72" />
+          <h2 className="font-cambria text-white text-sm lg:text-2xl lg:mt-8">Our Brands</h2>
+          <div className="w-full flex flex-col md:flex-row gap-1 justify-center items-center">
+            <img src={logo4} alt="logo3" className="w-16 lg:w-40" />
+            <img src={logo3} alt="logo3" className="w-16 lg:w-40" />
+            <img src={logo5} alt="logo3" className="w-16 lg:w-40" />
           </div>
           
         </div>
         <div className="flex flex-col items-end gap-2">
-          <div className="flex justify-end">
+          <div className="flex justify-end mt-2 lg:mt-5 lg:mb-8">
             <img
               src={fb}
               alt="fb"
-              className="w-10 md:w-20 lg:mx-2 cursor-pointer"
+              className="w-10 md:w-16 lg:mx-2 cursor-pointer"
               onClick={() =>
                 window.open("https://www.facebook.com/ParasAlterStation/", "_blank")
               }
@@ -86,7 +86,7 @@ const Footer = () => {
             <img
               src={ig}
               alt="ig"
-              className="w-10 md:w-20 cursor-pointer"
+              className="w-10 md:w-16 cursor-pointer"
               onClick={() =>
                 window.open("https://www.instagram.com/ParasAlterStation/", "_blank")
               }
