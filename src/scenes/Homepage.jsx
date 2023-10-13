@@ -263,34 +263,34 @@ const Homepage = () => {
         <h1 className="z-20 my-12 text-4xl md:text-5xl header font-tnr font-bold text-blue-900 text-center">
           Our Services
         </h1>
-        <div className="imgUp z-20 flex flex-col md:flex-row px-6 items-center justify-center">
+        <div className="imgUp z-20 flex flex-col md:flex-row items-center px-6 justify-center">
           <Link
             to="/services?source=basicAlteration"
             onClick={() => window.scrollTo(0, 640)}
-            className="w-1/3 flex flex-col items-center hover:scale-110 transition ease-in-out duration-500 "
+            className="md:w-1/3 flex flex-col items-center hover:scale-110 transition ease-in-out duration-500 "
           >
             <img src={card1} alt="el1" className="w-full md:w-5/6" />
-            <h1 className="-translate-y-6 bg-white py-2 px-6 font-cambria text-xl md:text-3xl text-center">
+            <h1 className="-translate-y-6 bg-white py-2 px-6 font-cambria text-xl lg:text-3xl text-center">
               Basic Alteration
             </h1>
           </Link>
           <Link
             to="/services?source=generalAlteration"
             onClick={() => window.scrollTo(0, 640)}
-            className="w-1/3 flex flex-col items-center hover:scale-110 transition ease-in-out duration-500 "
+            className="md:w-1/3 flex flex-col items-center hover:scale-110 transition ease-in-out duration-500 "
           >
             <img src={card2} alt="el2" className="md:w-5/6" />
-            <h1 className="-translate-y-6 bg-white font-cambria py-2 px-6 text-xl md:text-3xl text-center">
+            <h1 className="-translate-y-6 bg-white font-cambria py-2 px-6 text-xl lg:text-3xl text-center">
               General Alteration
             </h1>
           </Link>
           <Link
             to="/services?source=madeToOrder"
             onClick={() => window.scrollTo(0, 640)}
-            className="w-1/3 flex flex-col items-center hover:scale-110 transition ease-in-out duration-500 "
+            className="md:w-1/3 flex flex-col items-center hover:scale-110 transition ease-in-out duration-500 "
           >
             <img src={card3} alt="el2" className="md:w-5/6" />
-            <h1 className="-translate-y-6 bg-white font-cambria py-2 px-6 text-xl md:text-3xl text-center">
+            <h1 className="-translate-y-6 bg-white font-cambria py-2 px-6 text-xl lg:text-3xl text-center">
               Made to Order
             </h1>
           </Link>

@@ -12,7 +12,7 @@ import ig from "../assets/ELEMENTS-20.png";
 const Footer = () => {
   return (
     <section className="w-full h-auto bg-black flex flex-col items-center">
-      <h1 className="font-cambria text-white text-5xl font-bold m-8 translate-y-4">
+      <h1 className="font-cambria text-white text-4xl md:text-7xl font-bold m-8 translate-y-4">
         Get in touch!
       </h1>
       <form className="flex flex-col w-full items-center justify-center lg:px-32 translate-y-4">
