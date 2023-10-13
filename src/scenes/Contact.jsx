@@ -1,5 +1,4 @@
 import React, { useRef, useEffect, useState } from "react";
-import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import bg from "../assets/contact-25.jpg";
 import Button from "../components/Button";

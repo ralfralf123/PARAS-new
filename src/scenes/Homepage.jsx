@@ -2,7 +2,6 @@ import React, { useRef, useEffect, useState } from "react";
 import bg from "../assets/ELEMENTS-28.png";
 import bg2 from "../assets/bg2.jpg";
 import bg3 from "../assets/bg3.jpg";
-import NavBar from "../components/NavBar";
 import Button from "../components/Button";
 import phMap from "../assets/CAREERS_FRANCHISE-10.png";
 import el3 from "../assets/HOME-33(1).png";

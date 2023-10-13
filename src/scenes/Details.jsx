@@ -35,6 +35,7 @@ const Details = () => {
 
   return (
     <>
+      <div className="h-24"></div>
       <section className="w-full h-screen ">
         <div className="w-full h-full py-8 lg:py-0 px-4 md:px-8 lg:px-12 xl:px-24 flex bg-violet-100 flex-col lg:flex-row items-center justify-center">
           <div className="w-full lg:w-1/4 h-5/6 md:flex justify-center">

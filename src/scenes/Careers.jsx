@@ -1,5 +1,4 @@
 import React, { useRef, useEffect } from "react";
-import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import bg from "../assets/cfp-21(1) (Large).png";
 import el3 from "../assets/quali-27(1) (Small).png";
@@ -237,7 +236,7 @@ const Careers = () => {
       </section>
       <section className="w-full h-auto mt-12 relative ">
         <div className="w-full h-full flex flex-col items-center justify-center py-12">
-          <h1 className="imgUp text-center text-4xl lg:text-7xl font-cambria font-bold text-blue-900">
+          <h1 className="imgUp text-center text-4xl px-4 md:px-8 lg:px-16 xl:px-24 lg:text-7xl font-cambria font-bold text-blue-900">
             Submit Your Application Today!
           </h1>
           <div className="w-full flex flex-col px-4 md:px-8 lg:px-16 xl:px-24 mt-8 md:mt-16">

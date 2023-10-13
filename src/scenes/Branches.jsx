@@ -1,5 +1,4 @@
 import React, { useRef, useEffect, useState } from "react";
-import NavBar from "../components/NavBar";
 import bg from "../assets/BRANCHES-32 (1).png";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
@@ -91,7 +90,7 @@ const Branches = () => {
         </div>
       </section>
       <section className="w-full py-12 h-auto flex flex-col bg-dimBlue justify-center items-center">
-        <div className="imgUp w-full pb-16 grid grid-cols-5 px-4 md:px-8 lg:px-16 xl:px-24 gap-4">
+        <div className="imgUp w-full pb-16 grid grid-cols-3 px-4 md:px-8 lg:px-16 xl:px-24 gap-4">
           <div
             className={`text-center py-4 rounded-3xl font-cambria font-bold text-[0.5rem] md:text-lg shadow-lg transition ease-in-out duration-3000 cursor-pointer hover:bg-blue-900 hover:text-white ${
               visibleColumn === "metro-manila"
@@ -110,7 +109,7 @@ const Branches = () => {
             }`}
             onClick={() => toggleColumn("north-luzon")}
           >
-            North Luzon
+            Central Luzon
           </div>
           <div
             className={`text-center py-4 rounded-3xl font-cambria font-bold text-[0.5rem] md:text-lg shadow-lg transition ease-in-out duration-3000 cursor-pointer hover:bg-blue-900 hover:text-white ${
@@ -121,26 +120,6 @@ const Branches = () => {
             onClick={() => toggleColumn("south-luzon")}
           >
             South Luzon
-          </div>
-          <div
-            className={`text-center py-4 rounded-3xl font-cambria font-bold text-[0.5rem] md:text-lg shadow-lg transition ease-in-out duration-3000 cursor-pointer hover:bg-blue-900 hover:text-white ${
-              visibleColumn === "visayas"
-                ? " bg-blue-900 text-white"
-                : "bg-white"
-            }`}
-            onClick={() => toggleColumn("visayas")}
-          >
-            Visayas
-          </div>
-          <div
-            className={`text-center py-4 rounded-3xl font-cambria font-bold text-[0.5rem] md:text-lg shadow-lg transition ease-in-out duration-3000 cursor-pointer hover:bg-blue-900 hover:text-white ${
-              visibleColumn === "mindanao"
-                ? " bg-blue-900 text-white"
-                : "bg-white"
-            }`}
-            onClick={() => toggleColumn("mindanao")}
-          >
-            Mindanao
           </div>
         </div>
         <div className="imgUp h-auto">

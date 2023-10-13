@@ -6,6 +6,7 @@ import el1 from "../assets/A4 Fabric Care (Large).png";
 const Tips = () => {
   return (
     <>
+      <div className="h-28"></div>
       <section className="w-full h-auto flex flex-col items-center">
         <div className="flex w-full items-center">
           <img src={el1} alt="el4" className="w-full" />

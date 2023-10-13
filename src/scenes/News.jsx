@@ -1,5 +1,4 @@
 import React, { useRef, useEffect } from "react";
-import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import bgNews from "../assets/N&E BG-21.png";
 import el1 from "../assets/NEP-24 (Small).png";

@@ -1,6 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
 import { useLocation } from 'react-router-dom';
-import NavBar from "../components/NavBar";
 import bgServices from "../assets/BG-33.jpg";
 import Footer from "../components/Footer";
 import { gsap } from "gsap";
@@ -26,10 +25,7 @@ const Services = () => {
 
     const playAnimation = () => {
       const el2 = el2Ref.current;
-      const headers = gsap.utils.toArray(".header");
-      const imagesUp = gsap.utils.toArray(".imgUp");
       const imagesSlideRight = gsap.utils.toArray(".imgSlideRight");
-      const imagesSlideLeft = gsap.utils.toArray(".imgSlideLeft");
       const fadeIn = gsap.utils.toArray(".fadeIn");
 
       gsap.set(fadeIn, { opacity: 0 });
