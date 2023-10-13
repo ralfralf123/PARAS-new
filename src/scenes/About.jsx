@@ -52,11 +52,6 @@ const About = () => {
         x: -400,
       });
 
-      gsap.set(imagesRight, {
-        opacity: 0,
-        x: 400,
-      });
-
       gsap.set(delayRight, {
         opacity: 0,
         x: -400,
@@ -119,7 +114,11 @@ const About = () => {
           start: "top bottom",
           end: "bottom top",
           onEnter: () => {
-            gsap.to(imageRight, {
+            gsap.fromTo(imageRight, {
+              x: 400,
+              opacity: 0
+            },
+            {
               duration: 2,
               opacity: 1,
               x: 0,
@@ -174,7 +173,6 @@ const About = () => {
   return (
     <>
       <section className="w-full h-screen flex flex-col">
-        <NavBar />
         <img
           src={bgAbout}
           alt="bg"

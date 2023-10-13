@@ -119,7 +119,6 @@ const Contact = () => {
   return (
     <>
       <section className="w-full h-screen flex flex-col">
-        <NavBar />
         <img
           src={bg}
           alt="bg"
@@ -158,6 +157,8 @@ const Contact = () => {
               <select
                 name="concern"
                 className="font-cambria text-lg w-full border-none text-gray-400 bg-white"
+                defaultValue="Concern"
+              
               >
                 <option value="" disabled selected hidden>
                   Concern

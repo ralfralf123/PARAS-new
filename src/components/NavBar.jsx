@@ -11,16 +11,22 @@ const NavBar = () => {
   };
 
   return (
-    <nav className="flex md:flex-col md:items-center lg:flex-row fixed px-4 lg:px-12 xl:px-24 py-2 h-auto bg-white w-full z-[999]">
+    <nav className="flex w-full fixed justify-between md:flex-col md:items-center lg:flex-row px-4 lg:px-12 xl:px-24 py-2 h-auto bg-white z-[999]">
       <img
         src={logo}
         alt="logo"
         className="flex w-48 my-2"
       />
-      <ul className="flex w-full items-center justify-end md:justify-between lg:ml-12 xl:ml-36 my-4  lg:my-8">
+      <div onClick={handleNav} className="md:hidden cursor-pointer flex justify-center items-center ">
+        {nav ? (
+          <IoIosClose size={30} className="text-blue-900" />
+        ) : (
+          <IoIosMenu size={30} className=" text-blue-900" />
+        )}
+      </div>
+      <ul className="md:flex w-full hidden items-center justify-end md:justify-between lg:ml-12 xl:ml-36 my-4 lg:my-8">
         <li className="text-blue-800 font-tnr text-lg cursor-pointer hidden md:flex">
           <NavLink
-            exact
             to="/"
             onClick={() => window.scrollTo(0, 0)}
             className={({ isActive }) =>
@@ -97,13 +103,6 @@ const NavBar = () => {
             Contact Us
           </NavLink>
         </li>
-        <div onClick={handleNav} className="md:hidden cursor-pointer ">
-          {nav ? (
-            <IoIosClose size={30} className="text-blue-900" />
-          ) : (
-            <IoIosMenu size={30} className=" text-blue-900" />
-          )}
-        </div>
       </ul>
       <ul
         className={
@@ -115,7 +114,6 @@ const NavBar = () => {
         <img src={logo} alt="logo" className="my-4 p-4 w-56" />
         <li className="text-blue-800 font-tnr border-b border-gray-300 text-lg p-2 cursor-pointer transition duration-500 ease-in-out hover:text-black">
           <NavLink
-            exact
             to="/"
             onClick={() => window.scrollTo(0, 0)}
             className={({ isActive }) =>

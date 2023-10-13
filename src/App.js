@@ -11,11 +11,12 @@ import News from './scenes/News';
 import Labels from './scenes/Labels';
 import Tips from './scenes/Tips';
 import Denim from './scenes/Denim';
-import { branchesNCR } from './data/BranchData';
+import NavBar from './components/NavBar';
 
 const App = () => {
   return (
     <>
+    <NavBar />
     <div className="App">
       <Routes>        
       <Route path="/"  element={<Homepage/>} />

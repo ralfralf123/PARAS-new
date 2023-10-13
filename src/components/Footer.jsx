@@ -36,14 +36,23 @@ const Footer = () => {
               <select
                 name="concern"
                 className="font-cambria text-lg w-full border-none text-gray-400 bg-black"
+                defaultValue="Concern"
               >
-                <option value="" disabled selected hidden>
+                <option value="Concern" disabled hidden>
                   Concern
                 </option>
-                <option value="Franchise" className="text-white">Franchise</option>
-               <option value="Job Application"  className="text-white">Job Application</option>
-                <option value="Store Concerns"  className="text-white">Store Concerns</option>
-               <option value="Other Concerns"  className="text-white">Other Concerns</option>
+                <option value="Franchise" className="text-white">
+                  Franchise
+                </option>
+                <option value="Job Application" className="text-white">
+                  Job Application
+                </option>
+                <option value="Store Concerns" className="text-white">
+                  Store Concerns
+                </option>
+                <option value="Other Concerns" className="text-white">
+                  Other Concerns
+                </option>
               </select>
             </div>
           </div>
@@ -65,13 +74,14 @@ const Footer = () => {
         </div>
         <div className="flex flex-col justify-center items-center gap-1 md:gap-4">
           <img src={logo2} alt="logo2" className="w-24 lg:w-72" />
-          <h2 className="font-cambria text-white text-sm lg:text-2xl lg:mt-8">Our Brands</h2>
+          <h2 className="font-cambria text-white text-sm lg:text-2xl lg:mt-8">
+            Our Brands
+          </h2>
           <div className="w-full flex flex-col md:flex-row gap-1 justify-center items-center">
             <img src={logo4} alt="logo3" className="w-16 lg:w-40" />
             <img src={logo3} alt="logo3" className="w-16 lg:w-40" />
             <img src={logo5} alt="logo3" className="w-16 lg:w-40" />
           </div>
-          
         </div>
         <div className="flex flex-col items-end gap-2">
           <div className="flex justify-end mt-2 lg:mt-5 lg:mb-8">
@@ -80,7 +90,10 @@ const Footer = () => {
               alt="fb"
               className="w-10 md:w-16 lg:mx-2 cursor-pointer"
               onClick={() =>
-                window.open("https://www.facebook.com/ParasAlterStation/", "_blank")
+                window.open(
+                  "https://www.facebook.com/ParasAlterStation/",
+                  "_blank"
+                )
               }
             />
             <img
@@ -88,7 +101,10 @@ const Footer = () => {
               alt="ig"
               className="w-10 md:w-16 cursor-pointer"
               onClick={() =>
-                window.open("https://www.instagram.com/ParasAlterStation/", "_blank")
+                window.open(
+                  "https://www.instagram.com/ParasAlterStation/",
+                  "_blank"
+                )
               }
             />
           </div>

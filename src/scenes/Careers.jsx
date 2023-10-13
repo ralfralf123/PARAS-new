@@ -39,11 +39,6 @@ const Careers = () => {
         x: -400,
       });
 
-      gsap.set(imagesSlideLeft, {
-        opacity: 0,
-        x: 400,
-      });
-
       gsap.set([el1], {
         opacity: 0,
         y: 100,
@@ -71,12 +66,15 @@ const Careers = () => {
           start: "top bottom",
           end: "bottom top",
           onEnter: () => {
-            gsap.to(imagesLeft, {
+            gsap.fromTo(imagesLeft, {
+              x:400,
+              opacity: 0,
+            },
+            {
               duration: 2,
               opacity: 1,
               x: 0,
-              ease: "expo",
-            });
+              ease: "expo",});
           },
         });
       });
@@ -137,7 +135,6 @@ const Careers = () => {
   return (
     <>
       <section className="w-full h-screen flex flex-col relative">
-        <NavBar />
         <img
           src={bg}
           alt="bg"
@@ -145,7 +142,7 @@ const Careers = () => {
         />
         <div className="absolute inset-0 flex flex-col w-full h-full items-center lg:items-end justify-start lg:justify-start xl:px-24 pt-64">
           <h1
-            className="text-blue-900 text-4xl lg:text-7xl font-bold font-tnr xl:ml-24 mb-4"
+            className="text-blue-900 text-4xl lg:text-7xl font-bold font-tnr pr-8 xl:ml-24 mb-4"
             ref={el1Ref}
           >
             Careers at <br /> Paras Alter <br /> Station

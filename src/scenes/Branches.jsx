@@ -71,7 +71,6 @@ const Branches = () => {
   return (
     <>
       <section className="w-full h-screen flex flex-col">
-        <NavBar />
         <img
           src={bg}
           alt="bg"

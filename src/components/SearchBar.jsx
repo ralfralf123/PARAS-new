@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { IoIosSearch } from 'react-icons/io';
 
@@ -6,6 +6,20 @@ function SearchBar({ branchesData }) {
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
+  const [showNoResults, setShowNoResults] = useState(false); 
+  const [showMenu, setShowMenu] = useState(false);
+
+  // Function to toggle the menu
+  const toggleMenu = () => {
+    setShowMenu(!showMenu);
+  };
+
+  // Function to handle click events outside of the menu
+  const handleClickOutside = (e) => {
+    if (!e.target.closest('.search-menu')) {
+      toggleMenu();
+    }
+  };
 
   // Function to handle search input changes
   const handleSearchInputChange = (event) => {
@@ -22,7 +36,16 @@ function SearchBar({ branchesData }) {
       );
 
     setSearchResults(filteredResults);
+    setShowNoResults(filteredResults.length === 0); 
   };
+
+  useEffect(() => {
+    document.addEventListener('click', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, []);
 
   // Function to handle redirection to Details page
   const handleBranchClick = (branchId) => {
@@ -53,8 +76,13 @@ function SearchBar({ branchesData }) {
       />
       <IoIosSearch
         size={30}
-        className="text-blue-900 absolute right-[3%] top-[20%] cursor-pointer"
+        className="text-blue-900 absolute right-[3%] top-[20%]"
       />
+      {showNoResults && ( // Conditionally render "No results found" message
+        <p className="font-cambria font-bold absolute mt-12 bg-gray-300 opacity-80 rounded-lg shadow-lg w-full p-2">
+          No results found
+        </p>
+      )}
       {searchResults.length > 0 && (
         <ul className="absolute mt-12 bg-gray-300 opacity-80 rounded-lg shadow-lg w-full overflow-auto max-h-36">
           {searchResults.map((branch) => (

@@ -61,10 +61,6 @@ const News = () => {
         y: 100,
       });
 
-      gsap.set(imagesSlideLeft, {
-        opacity: 0,
-        x: 400,
-      });
 
       fadeIn.forEach((fadeIn) => {
         ScrollTrigger.create({
@@ -79,17 +75,6 @@ const News = () => {
               ease: "expo",
             });
           },
-          onEnterBack: () => {
-            gsap.to(fadeIn, {
-              duration: 2,
-              delay: 0.3,
-              opacity: 1,
-              ease: "expo",
-            });
-          },
-          onLeave: () => {
-            gsap.set(fadeIn, { opacity: 0 });
-          },
         });
       });
 
@@ -99,23 +84,15 @@ const News = () => {
           start: "top bottom",
           end: "bottom top",
           onEnter: () => {
-            gsap.to(imagesLeft, {
+            gsap.fromTo(imagesLeft, {
+              x:400,
+              opacity: 0,
+            },
+            {
               duration: 2,
               opacity: 1,
               x: 0,
-              ease: "expo",
-            });
-          },
-          onEnterBack: () => {
-            gsap.to(imagesLeft, {
-              duration: 2,
-              opacity: 1,
-              x: 0,
-              ease: "expo",
-            });
-          },
-          onLeave: () => {
-            gsap.set(imagesLeft, { x: 400 });
+              ease: "expo",});
           },
         });
       });
@@ -134,18 +111,6 @@ const News = () => {
               ease: "expo",
             });
           },
-          onEnterBack: () => {
-            gsap.to(imgUp, {
-              opacity: 1,
-              duration: 2,
-              y: 0,
-              delay: 0.2,
-              ease: "expo",
-            });
-          },
-          onLeave: () => {
-            gsap.set(imgUp, { opacity: 0, y: 100 });
-          },
         });
       });
 
@@ -162,17 +127,6 @@ const News = () => {
               ease: "expo",
               stagger: 0.4,
             });
-          },
-          onEnterBack: () => {
-            gsap.to(header, {
-              opacity: 1,
-              duration: 2,
-              y: 0,
-              ease: "expo",
-            });
-          },
-          onLeave: () => {
-            gsap.set(header, { opacity: 0, y: 100 });
           },
         });
       });
@@ -192,7 +146,6 @@ const News = () => {
   return (
     <>
       <section className="w-full h-screen relative">
-        <NavBar />
         <img
           src={bgNews}
           alt="bg"
@@ -267,9 +220,8 @@ const News = () => {
                 height="auto"
                 src="https://www.youtube.com/embed/ZogK9WF3ZgA?list=PLG20TVIp3VW4d-APlQksheKya5SDwluJH"
                 title="EMPLYFY"
-                frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
+                allowFullScreen
               ></iframe>
             </div>
             <div className="h-1/2 flex w-full lg:pt-4 ">
@@ -278,9 +230,8 @@ const News = () => {
                 height="auto"
                 src="https://www.youtube.com/embed/1aWYlGEiRyw?list=PLG20TVIp3VW4d-APlQksheKya5SDwluJH"
                 title="123456789"
-                frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
+                allowFullScreen
               ></iframe>
             </div>
           </div>
@@ -315,7 +266,7 @@ const News = () => {
                   alt="el1"
                   className=" shadow-xl rounded-[20%] w-6/6 md:w-5/6"
                 />
-                <h1 className="w-full h-[27%] fadeIn font-cambria text-xs md:text-md lg:text-lg xl:text-2xl text-center absolute bottom-0 right-0 font-bold text-blue-900 p-1 xl:pt-3">
+                <h1 className="w-full h-[27%] fadeIn font-cambria text-[0.5rem] md:text-md lg:text-lg xl:text-2xl text-center absolute bottom-0 right-0 font-bold text-blue-900 p-1 xl:pt-3">
                   Guide on Clothing <br/> Care Labels
                 </h1>
               </div>
@@ -333,7 +284,7 @@ const News = () => {
                   alt="el2"
                   className=" shadow-xl rounded-[20%] w-6/6 md:w-5/6"
                 />
-                <h1 className="w-full h-[27%] fadeIn font-cambria text-xs md:text-md lg:text-lg xl:text-2xl text-center absolute bottom-0 right-0 font-bold text-blue-900 p-1 xl:pt-3">
+                <h1 className="w-full h-[27%] fadeIn font-cambria text-[0.5rem] md:text-md lg:text-lg xl:text-2xl text-center absolute bottom-0 right-0 font-bold text-blue-900 p-1 xl:pt-3">
                   Common Fabric <br/> Care Guide
                 </h1>
               </div>

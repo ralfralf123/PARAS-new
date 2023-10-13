@@ -67,12 +67,7 @@ const Homepage = () => {
         opacity: 0,
         x: -400,
       });
-  
-      gsap.set(imagesSlideLeft, {
-        opacity: 0,
-        x: 400,
-      });
-  
+
       gsap.set(headers, {
         opacity: 0,
         y: 100,
@@ -105,12 +100,15 @@ const Homepage = () => {
           start: "top bottom",
           end: "bottom top",
           onEnter: () => {
-            gsap.to(imagesLeft, {
+            gsap.fromTo(imagesLeft, {
+              x:400,
+              opacity: 0,
+            },
+            {
               duration: 2,
               opacity: 1,
               x: 0,
-              ease: "expo",
-            });
+              ease: "expo",});
           },
         });
       });
@@ -209,7 +207,6 @@ const Homepage = () => {
   return (
     <>
       <section className="relative w-full h-screen flex flex-col">
-        <NavBar />
         <Swiper
           modules={[Pagination, Autoplay]}
           pagination={{
@@ -240,7 +237,7 @@ const Homepage = () => {
               className="absolute inset-0 object-cover w-full h-screen"
             />
           </SwiperSlide>
-          <div class="swiper-pagination"></div>
+          <div className="swiper-pagination"></div>
         </Swiper>
         <div className=" absolute inset-0 flex flex-col w-full h-full items-center justify-center pt-64">
           <h1
@@ -444,7 +441,7 @@ const Homepage = () => {
           >
             <SwiperSlide>
               <div className="hidden lg:flex w-full h-auto justify-center gap-12 xl:gap-24 ">
-                <div classname="w-1/2 relative">
+                <div>
                   <img
                     src={testimonials}
                     alt="testimonials"
@@ -464,7 +461,7 @@ const Homepage = () => {
                     </div>
                   </div>
                 </div>
-                <div classname="hidden w-1/2 relative">
+                <div>
                   <img
                     src={testimonials}
                     alt="testimonials"
@@ -487,14 +484,14 @@ const Homepage = () => {
                 </div>
               </div>
               <div className="flex lg:hidden w-full h-auto justify-center gap-24 ">
-                <div classname="w-1/2 relative">
+                <div>
                   <img
                     src={testimonials}
                     alt="testimonials"
                     className="w-96 h-auto object-contain shadow-xl"
                   />
                   <div className="absolute top-0 flex px-4 pt-12 flex-col w-full h-full gap-20 justify-center ">
-                    <p className="w-[22rem] font-cambria text-xl text-blue-900 text-justify ">
+                    <p className="w-full sm:w-[22rem] font-cambria text-xl text-blue-900 text-justify ">
                     "Fantastic service, shortened an evening dress for me with
                       no notice at all, Am so grateful to Paras Alter Station &
                       would thorougly recommend their services."
@@ -511,14 +508,14 @@ const Homepage = () => {
             </SwiperSlide>
             <SwiperSlide className="hidden">
               <div className="flex w-full h-auto justify-center gap-24 ">
-                <div classname="w-1/2 relative">
+                <div>
                   <img
                     src={testimonials}
                     alt="testimonials"
                     className="w-96 h-auto object-contain shadow-xl"
                   />
                   <div className="absolute top-0 flex px-4 pt-12 flex-col w-full h-full gap-20 justify-center ">
-                    <p className="w-[22rem] font-cambria text-xl text-blue-900 text-justify ">
+                    <p className="w-full sm:w-[22rem] font-cambria text-xl text-blue-900 text-justify ">
                       "Very pleased with the shortening of curtains & the lovely
                       tie backs made with the waste material. Quick & reasonably
                       priced service."

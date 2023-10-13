@@ -39,24 +39,9 @@ const Services = () => {
         y: 100,
       });
 
-      gsap.set(imagesUp, {
-        opacity: 0,
-        y: 100,
-      });
-
       gsap.set(imagesSlideRight, {
         opacity: 0,
         x: -400,
-      });
-
-      gsap.set(imagesSlideLeft, {
-        opacity: 0,
-        x: 400,
-      });
-
-      gsap.set(headers, {
-        opacity: 0,
-        y: 100,
       });
 
       gsap.set([el2], {
@@ -80,22 +65,6 @@ const Services = () => {
         });
       });
 
-      imagesSlideLeft.forEach((imagesLeft) => {
-        ScrollTrigger.create({
-          trigger: imagesLeft,
-          start: "top bottom",
-          end: "bottom top",
-          onEnter: () => {
-            gsap.to(imagesLeft, {
-              duration: 2,
-              opacity: 1,
-              x: 0,
-              ease: "expo",
-            });
-          },
-        });
-      });
-
       imagesSlideRight.forEach((imageRight) => {
         ScrollTrigger.create({
           trigger: imageRight,
@@ -111,41 +80,7 @@ const Services = () => {
           },
         });
       });
-
-      headers.forEach((header) => {
-        ScrollTrigger.create({
-          trigger: header,
-          start: "top bottom",
-          end: "bottom top",
-          onEnter: () => {
-            gsap.to(header, {
-              opacity: 1,
-              duration: 2,
-              delay: 0.4,
-              y: 0,
-              ease: "expo",
-              stagger: 0.4,
-            });
-          },
-        });
-      });
-
-      imagesUp.forEach((imgUp) => {
-        ScrollTrigger.create({
-          trigger: imgUp,
-          start: "top bottom",
-          end: "bottom top",
-          onEnter: () => {
-            gsap.to(imgUp, {
-              opacity: 1,
-              duration: 2,
-              delay: 0.2,
-              y: 0,
-              ease: "expo",
-            });
-          },
-        });
-      });
+    
 
       gsap.to([el2], {
         opacity: 1,
@@ -170,7 +105,6 @@ const Services = () => {
   return (
     <>
       <section className="w-full h-screen relative">
-        <NavBar />
         <img
           src={bgServices}
           alt="bg"
