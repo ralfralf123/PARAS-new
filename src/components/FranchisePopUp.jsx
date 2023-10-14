@@ -11,7 +11,7 @@ const FranchisePopUp = (props) => {
     emailjs
       .sendForm(
         "service_luk8bv4",
-        "template_ah89s4v",
+        "template_n2om666",
         form.current,
         "uPq0lj31TaPmqWyxF"
       )

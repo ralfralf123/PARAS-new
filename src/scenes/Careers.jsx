@@ -6,12 +6,40 @@ import Button from "../components/Button";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Link } from "react-router-dom";
-import AppForm from "../assets/Application-form.pdf"
+import AppForm from "../assets/Application-form.pdf";
+import emailjs from "@emailjs/browser";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Careers = () => {
   const el1Ref = useRef(null);
+
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_luk8bv4",
+        "template_ah89s4v",
+        form.current,
+        "uPq0lj31TaPmqWyxF"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+          alert("Email sent successfully!");
+          // Refresh the page after a short delay (you can customize the delay)
+          setTimeout(() => {
+            window.location.reload();
+          }, 1000); // Refresh after 2 seconds
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+  };
 
   useEffect(() => {
     const playAnimation = () => {
@@ -65,15 +93,19 @@ const Careers = () => {
           start: "top bottom",
           end: "bottom top",
           onEnter: () => {
-            gsap.fromTo(imagesLeft, {
-              x:400,
-              opacity: 0,
-            },
-            {
-              duration: 2,
-              opacity: 1,
-              x: 0,
-              ease: "expo",});
+            gsap.fromTo(
+              imagesLeft,
+              {
+                x: 400,
+                opacity: 0,
+              },
+              {
+                duration: 2,
+                opacity: 1,
+                x: 0,
+                ease: "expo",
+              }
+            );
           },
         });
       });
@@ -119,16 +151,15 @@ const Careers = () => {
         ease: "expo",
         stagger: 0.1,
       });
-    }
-    
-    if (document.readyState === 'complete') {
+    };
+
+    if (document.readyState === "complete") {
       playAnimation();
     } else {
-      window.addEventListener('load', playAnimation);
+      window.addEventListener("load", playAnimation);
       // Remove the event listener when component unmounts
-      return () => window.removeEventListener('load', playAnimation);
+      return () => window.removeEventListener("load", playAnimation);
     }
-    
   }, []);
 
   return (
@@ -225,10 +256,7 @@ const Careers = () => {
             </ul>
           </div>
           <div className="flex w-full justify-center">
-            <a
-              href={AppForm}
-              download="Application-form.pdf"
-            >
+            <a href={AppForm} download="Application-form.pdf">
               <Button text="Download Application Form" />
             </a>
           </div>
@@ -243,7 +271,11 @@ const Careers = () => {
             <div className="flex justify-start">
               <p className="fadeIn font-cambria text-lg lg:text-2xl ">Name</p>
             </div>
-            <form className="fadeIn font-cambria gap-4 md:gap-12 flex flex-col w-full items-center justify-center translate-y-4">
+            <form
+              ref={form}
+              onSubmit={sendEmail}
+              className="fadeIn font-cambria gap-4 md:gap-12 flex flex-col w-full items-center justify-center translate-y-4"
+            >
               <div className="w-full flex gap-2 md:gap-24">
                 <div className="w-1/2 flex flex-col gap-2">
                   <input
@@ -257,7 +289,7 @@ const Careers = () => {
                 <div className="w-1/2 flex flex-col gap-2">
                   <input
                     type="text"
-                    name="firstName"
+                    name="lastName"
                     className="p-2 md:p-3 bg-transparent border-2 rounded-xl border-blue-900"
                     required
                   />
