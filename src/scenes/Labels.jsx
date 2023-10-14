@@ -15,7 +15,7 @@ const Labels = () => {
         <div className="flex w-full items-center">
           <img src={el1} alt="el4" className="w-full" />
         </div>
-        <div className="w-full h-auto flex justify-between px-8 lg:px-24">
+        <div className="w-full h-auto flex justify-between px-4 md:px-8 lg:px-24">
           <Link
             to="/news"
             onClick={() => window.scrollTo(0, 0)}

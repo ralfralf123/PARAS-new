@@ -14,8 +14,8 @@ module.exports = {
         opaqueWhite: "rgba(255, 255, 255, 0.5)"
       },
       fontFamily: {
-        tnr: ["Times New Roman", "sans-serif"],
-        cambria: ["Cambria", "sans-serif"],
+        tnr: ["Times New Roman"],
+        cambria: ["Cambria"],
       },
     }
   },

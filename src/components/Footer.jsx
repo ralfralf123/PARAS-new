@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useRef } from "react";
+import emailjs from "@emailjs/browser";
 import img1 from "../assets/ELEMENTS-18.png";
 import img2 from "../assets/ELEMENTS-17.png";
 import img3 from "../assets/ELEMENTS-16.png";
@@ -10,12 +11,43 @@ import fb from "../assets/ELEMENTS-19.png";
 import ig from "../assets/ELEMENTS-20.png";
 
 const Footer = () => {
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+  
+    emailjs
+      .sendForm(
+        "service_luk8bv4",
+        "template_n2om666",
+        form.current,
+        "uPq0lj31TaPmqWyxF"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+          alert("Email sent successfully!");
+          // Refresh the page after a short delay (you can customize the delay)
+          setTimeout(() => {
+            window.location.reload();
+          }, 1000); // Refresh after 2 seconds
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+  };
+
   return (
     <section className="w-full h-auto bg-black flex flex-col items-center">
       <h1 className="font-cambria text-white text-4xl md:text-7xl font-bold m-8 translate-y-4">
         Get in touch!
       </h1>
-      <form className="flex flex-col w-full items-center justify-center lg:px-32 translate-y-4">
+      <form
+        ref={form}
+        onSubmit={sendEmail}
+        className="flex flex-col w-full items-center justify-center lg:px-32 translate-y-4"
+      >
         <div className="flex flex-col md:flex-row w-full items-center">
           <div className="font-cambria w-full md:w-1/2 flex flex-col items-center lg:items-end">
             <input

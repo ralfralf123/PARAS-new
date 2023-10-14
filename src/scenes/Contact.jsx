@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
+import emailjs from "@emailjs/browser";
 import Footer from "../components/Footer";
 import bg from "../assets/contact-25.jpg";
 import Button from "../components/Button";
@@ -10,6 +11,33 @@ import PopUp from "../components/PopUp";
 gsap.registerPlugin(ScrollTrigger);
 
 const Contact = () => {
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_luk8bv4",
+        "template_n2om666",
+        form.current,
+        "uPq0lj31TaPmqWyxF"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+          alert("Email sent successfully!");
+          // Refresh the page after a short delay (you can customize the delay)
+          setTimeout(() => {
+            window.location.reload();
+          }, 1000); // Refresh after 2 seconds
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+  };
+
   const el1Ref = useRef(null);
   const [timedPopup, setTimedPopup] = useState(false);
 
@@ -19,22 +47,22 @@ const Contact = () => {
       const imagesDown = gsap.utils.toArray(".imgDown");
       const imagesSlideRight = gsap.utils.toArray(".imgSlideRight");
       const imagesUp = gsap.utils.toArray(".imgUp");
-  
+
       gsap.set(imagesUp, {
         opacity: 0,
         y: 100,
       });
-  
+
       gsap.set(imagesDown, {
         opacity: 0,
         y: -100,
       });
-  
+
       gsap.set(imagesSlideRight, {
         opacity: 0,
         x: -400,
       });
-  
+
       imagesSlideRight.forEach((imageRight) => {
         ScrollTrigger.create({
           trigger: imageRight,
@@ -50,7 +78,7 @@ const Contact = () => {
           },
         });
       });
-  
+
       imagesUp.forEach((imgUp) => {
         ScrollTrigger.create({
           trigger: imgUp,
@@ -67,7 +95,7 @@ const Contact = () => {
           },
         });
       });
-  
+
       imagesDown.forEach((imgUp) => {
         ScrollTrigger.create({
           trigger: imgUp,
@@ -88,7 +116,7 @@ const Contact = () => {
         opacity: 0,
         y: 100,
       });
-  
+
       gsap.to(el1, {
         opacity: 1,
         duration: 2,
@@ -97,16 +125,15 @@ const Contact = () => {
         ease: "expo",
         stagger: 0.1,
       });
-    }
-    
-    if (document.readyState === 'complete') {
+    };
+
+    if (document.readyState === "complete") {
       playAnimation();
     } else {
-      window.addEventListener('load', playAnimation);
+      window.addEventListener("load", playAnimation);
       // Remove the event listener when component unmounts
-      return () => window.removeEventListener('load', playAnimation);
+      return () => window.removeEventListener("load", playAnimation);
     }
-    
   }, []);
 
   useEffect(() => {
@@ -131,7 +158,11 @@ const Contact = () => {
             We'd love to hear from you!
           </h1>
         </div>
-        <PopUp trigger={timedPopup} setTrigger={setTimedPopup} className="imgSlideLeft" />
+        <PopUp
+          trigger={timedPopup}
+          setTrigger={setTimedPopup}
+          className="imgSlideLeft"
+        />
       </section>
       <section className="w-full h-auto my-24 flex flex-col">
         <div className="inset-0 flex flex-col w-full h-full justify-center items-center px-8 md:px-0">
@@ -139,7 +170,11 @@ const Contact = () => {
             Questions? Comments? and Suggestion? <br />
             Please complete the form below <br /> and click submit
           </h1>
-          <form className="imgUp font-cambria flex flex-col w-full md:w-5/6 lg:w-3/4 items-center justify-center lg:px-32 translate-y-4">
+          <form
+            ref={form}
+            onSubmit={sendEmail}
+            className="imgUp font-cambria flex flex-col w-full md:w-5/6 lg:w-3/4 items-center justify-center lg:px-32 translate-y-4"
+          >
             <input
               type="text"
               name="name"
@@ -157,7 +192,6 @@ const Contact = () => {
                 name="concern"
                 className="font-cambria text-lg w-full border-none text-gray-400 bg-white"
                 defaultValue="Concern"
-              
               >
                 <option value="" disabled selected hidden>
                   Concern
